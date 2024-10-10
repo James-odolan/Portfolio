@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Urbanist" rel="stylesheet">
+    <title>James' Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/x-icon" href="../Images/favicon.ico">
+     <style>
+        /* Container Settings */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+            font-family: 'Urbanist', sans-serif;
+        }
+
+        p {
+            margin: 0!important;
+        }
+
+        .IIID-p {
+            margin: 0!important;
+        }
+
+        .IIID-p-2 {
+            margin: 0!important;
+        }
+
+        .IIID-opener, .IIID-opener-2 {
+            overflow: hidden; /* Prevent overflow due to animations */
+            opacity: 0;
+            transform: translateX(-100px); /* Initially positioned off-screen to the left */
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .IIID-opener-2 {
+            transform: translateX(100px); /* Initially positioned off-screen to the right */
+        }
+
+        .IIID-opener.visible, .IIID-opener-2.visible {
+            opacity: 1;
+            transform: translateX(0); /* Move to original position */
+        }
+
+        .IIID-opener, .IIID-opener-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 6%;
+            padding: 2% 5%; /* Consolidate padding for a more uniform look */
+        }
+
+        .lbu-vid, .lbu-vid-2 {
+            position: relative;
+            width: 100%;
+        }
+
+        .lbu-vid video, .lbu-vid-2 video {
+            width: 100%;
+            border-radius: 10px;
+
+        }
+
+        .IIID-p, .IIID-p-2 {
+            text-align: justify;
+            backdrop-filter: blur(8px);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .three-img-grid, .three-img-grid-2 {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: 1fr;
+            padding: 20px;
+        }
+
+        .three-img-grid img, .three-img-grid-2 img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, 
+                        rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, 
+                        rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, 
+                        rgba(0, 0, 0, 0.06) 0px 2px 1px, 
+                        rgba(0, 0, 0, 0.09) 0px 4px 2px, 
+                        rgba(0, 0, 0, 0.09) 0px 8px 4px, 
+                        rgba(0, 0, 0, 0.09) 0px 16px 8px, 
+                        rgba(0, 0, 0, 0.09) 0px 32px 16px;
+        }
+
+        .three-end {
+            margin-bottom: 3%;
+            padding: 25px 151px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            align-items: center;
+        }
+
+
+        .three-end {
+            opacity: 0;
+            transform: translateX(100px); /* Initially off-screen to the right */
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .three-end.visible {
+            opacity: 1;
+            transform: translateX(0); /* Move to original position */
+        }
+
+        .C3D-slideshow-container {
+
+            flex: 1;
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, 
+                        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+                        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        }
+
+        #myVideo {
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        }
+
+        .C3D-slide {
+            display: none;
+        }
+
+        .C3D-slide img {
+            width: 100%;
+        }
+
+        .C3D-prev, .C3D-next {
+            background-color: rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+            position: absolute;
+            top: 46%;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            user-select: none;
+        }
+
+        .C3D-next {
+            border-radius: 15px 0px 0px 15px;
+            right: 0;
+        }
+
+        .C3D-prev {
+            border-radius: 0px 15px 15px 0px;
+        }
+
+        .C3D-prev:hover, .C3D-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .C3D-fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        /* Responsive styling */
+        @media screen and (max-width: 768px) {
+            .IIID-opener, .IIID-opener-2 {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .three-end {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+
+            .three-img-grid img, .three-img-grid-2 img {
+                width: 100%;
+            }
+
+            .ThreeCloser {
+                padding: 10px;
+                display: block;
+                height: 46vh;
+            }
+
+            .IIID-GAP {
+                margin: 5% 0%;
+                padding: 10px;
+            }
+
+            ._3D-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+.ThreeCloser {
+    opacity: 0 !important;
+    transform: scale(1.5) rotate(25deg);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.ThreeCloser.visible {
+    opacity: 1 !important;
+    transform: scale(1) rotate(0deg);
+}
+
+.three-text-2 p {
+    margin: 0;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+}
+
+._3D-grid {
+    margin: 8.5% 13%;
+    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+}
+._3D-skills {
+    grid-column: span 1;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+._3D-skill p {
+    margin: 0;
+    backdrop-filter: blur(10px);
+    padding: 10px;
+}
+
+._3D-img {
+    grid-column: span 1;
+}
+
+._3D-img img {
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.page-heading {
+    margin: 4% 0% 0% 0%;
+}
+
+._3D-img {
+    opacity: 0 !important;
+    transform: translateX(-100px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+._3D-img.visible {
+    opacity: 1 !important;
+    transform: translateX(0);
+}
+
+._3D-skills {
+    opacity: 0 !important;
+    transform: translateX(100px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+._3D-skills.visible {
+    opacity: 1 !important;
+    transform: translateX(0);
+}
+
+._3D-img-grid {
+    margin: 40px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+._3D-img img {
+    width: 100%;
+}
+
+    </style>
+
+
+
+</head>
+<body>
+    <div id="page-transition"></div>
+    <div id="overlay"></div>
+    <div id="content">
+                <header>
+                    <div class="logo">
+                        <a href="../About.html">
+                            <img src="../Images/LOGO.png" alt="Logo">
+                        </a>
+                    </div>
+                    <nav id="navbar">
+                        <div class="hamburger" id="hamburger">&#9776;</div>
+                        <ul class="nav-content">
+                            <li><a href="../About.html">About</a></li>
+                            <li><a href="../index.html">Portfolio</a></li>
+                            <li><a href="../Contact.html">Contact</a></li>
+                            <li><a href="../Experience.html">Experience</a></li>
+                        </ul>
+                    </nav>
+                    <div class="cursor-dot" data-cursor-dot></div>
+                    <div class="cursor-outline" data-cursor-outline></div>
+                </header>
+
+
+        <div class="block"><h1>3D Design</h1></div>
+                <div class="page-heading"><h2> Cinema 4d Work </h2></div>
+        <div class="IIID-GAP">
+            <div class="IIID-opener">
+                <div class="lbu-vid">
+                    <video id="myVideo" controls autoplay muted loop>
+                        <source src="../Images/lbu.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <div class="IIID-p">
+                    <p>While I am unable to showcase the full extent of my 3D work due to the loss of my university files and not having access to 4D suites in the pandemic, my journey in Cinema 4D has been a valuable learning experience and worth noting. Throughout my studies, I developed a strong foundation in modeling, texturing, lighting, and animation, which have become essential tools in my creative toolkit.</p>
+                </div>
+            </div>
+
+            <div class="IIID-opener-2">
+                <div class="IIID-p-2"><p>Despite the setbacks, the skills I've gained in problem-solving, workflow optimization, and design thinking continue to drive my passion for 3D art. This project page highlights the work I’ve been able to preserve and create since then. Although I faced many challenges, I adapted my workflow and leveraged alternative tools and techniques to overcome the limitations.</p>
+                </div>
+
+                <div class="lbu-vid">
+                    <video id="myVideo" controls autoplay muted loop>
+                        <source src="../Images/lbu.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+        <div class="block2">
+            <h1>CBBC Channel</h1>
+        </div>
+
+        <div class="ThreeCloser">
+            <div class="three-text"><p>This was one of the early graphic design projects that I had during my time at Leeds Beckett University, as you can see there was a heavy amount of research for this project, into branding and visual imagery for the promotion. The task was to create an imagined rebranding for Leeds City Museum including brand guidelines, colour scheme, fonts and all other necessary matertials.</p>
+            </div>
+            <!--<div class="google-slides">
+                <iframe class="bord" src="https://docs.google.com/presentation/d/1-3M6KzDdYRuTNpScyUEf6Iy6J7SHW2WL1vbd-4MSgGQ/embed?start=false&loop=false&delayms=3000" frameborder="0" width="720" height="434"></iframe>
+            </div>-->
+
+            <div class="C3D-slideshow-container">
+
+    <!-- Slides -->
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-1.png" style="width:100%">
+                </div>
+
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-2.png" style="width:100%">
+                </div>
+
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-3.png" style="width:100%">
+                </div>
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-4.png" style="width:100%">
+                </div>
+
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-5.png" style="width:100%">
+                </div>
+
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-6.png" style="width:100%">
+                </div>
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-7.png" style="width:100%">
+                </div>
+
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-8.png" style="width:100%">
+                </div>
+
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-9.png" style="width:100%">
+                </div>
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-10.png" style="width:100%">
+                </div>
+
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-11.png" style="width:100%">
+                </div>
+
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-12.png" style="width:100%">
+                </div>
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-13.png" style="width:100%">
+                </div>
+
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-14.png" style="width:100%">
+                </div>
+
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-15.png" style="width:100%">
+                </div>
+
+                <div class="C3D-slide C3D-fade">
+                    <img src="../Images/3D-slide-16.png" style="width:100%">
+                </div>
+
+
+
+                <!-- Navigation buttons -->
+                <a class="C3D-prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="C3D-next" onclick="changeSlide(1)">&#10095;</a>
+            </div>
+            </div> 
+
+        <div class="three-end">
+            <div class="three-img-grid">
+                <img src="../Images/3D1.png" width="100">
+                <img src="../Images/3D2.png" width="100">
+            </div>
+            <div class="three-text-2"><p>This was one of the early graphic design projects that I had during my time at Leeds Beckett University, as you can see there was a heavy amount of research for this project, into branding and visual imagery for the promotion. The task was to create an imagined rebranding for Leeds City Museum including brand guidelines, colour scheme, fonts and all other necessary matertials.</p></div>
+            <div class="three-img-grid-2">
+                <img src="../Images/3D3.png" width="100">
+                <img src="../Images/3D4.png" width="100">
+            </div>
+        </div>
+
+        <div class="block">
+            <h1>Skills Used</h1>
+        </div>
+
+        <div class="_3D-grid">
+            <div class="_3D-img-grid">
+                <div class="_3D-img">
+                    <img src="../Images/3d-1.png">
+                </div>
+                <div class="_3D-img">
+                    <img src="../Images/3d-2.png">
+                </div>
+                <div class="_3D-img">
+                    <img src="../Images/3d-3.png">
+                </div>
+
+                
+            </div>
+            <div class="_3D-skills">
+                <div class="_3D-skill">
+                    <p>Cinema 4D and 3D modeling, Cinema 4D is a powerful tool for creating 3D models of objects, characters, and environments. I learned how to use various tools and techniques to create complex 3D models that can be used in animation, video games, and visual effects</p>
+                </div>
+                <div class="_3D-skill">
+                    <p>Animation: Cinema 4D allowed me to animate 3D models and create dynamic motion graphics. I learned how to use keyframe animation, dynamics, and particle systems to bring my creations to life.</p>
+                </div>
+                <div class="_3D-skill">
+                    <p>Adobe After Effects was used to piece it all together in a smooth visual style using different visual animations and effects to help the viewers understand.</p>
+                </div>
+            </div>
+        </div>
+    <footer>
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="../linkICO"><i class="fab fa-facebook-f"></i></a>
+                <a href="../linkICO"><i class="fab fa-instagram"></i></a>
+                <a href="../linkICO"><i class="fab fa-twitter"></i></a>
+                <a href="../linkICO"><i class="fab fa-google-plus-g"></i></a>
+            </div>
+            <div class="contact-info">
+                <p>Email: jamesedward.odolan@gmail.com</p>
+                <p>Phone: +1 234 567 890</p>
+            </div>
+            <div class="quick-links">
+                <a href="../Portfolio.html">Home</a>
+                <a href="../About.html">About</a>
+                <a href="../Contact.html">Contact</a>
+                <a href="../Experience.html">Experience</a>
+            </div>
+            <div class="company-info">
+                <p>My Website is dedicated to providing top-notch services. My mission is to.</p>
+            </div>
+            <p>&copy; 2024; Designed by James O'Dolan</p>
+        </div>
+    </footer>  
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('myVideo');
+
+            // Set playback speed to 0.5 (half speed)
+            video.playbackRate = 0.7;
+
+            // Event listener for when the video ends
+            video.addEventListener('ended', function() {
+                // Pause the video
+                video.pause();
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to handle adding and removing the 'visible' class
+            const revealOnScroll = () => {
+                const elements = document.querySelectorAll('.IIID-opener, .IIID-opener-2, .ThreeCloser, ._3D-img, ._3D-skills');
+                elements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 150 && rect.bottom >= 0) { // Adjust the -150 value as needed
+                        element.classList.add('visible');
+                    } else {
+                        element.classList.remove('visible');
+                    }
+                });
+            };
+
+            // Initial check in case elements are already in view
+            revealOnScroll();
+
+            // Add scroll event listener
+            window.addEventListener('scroll', revealOnScroll);
+
+            // Use Intersection Observer for better performance
+            const observerOptions = {
+                root: null, // relative to viewport
+                rootMargin: '0px 0px -150px 0px', // Adjust the bottom margin to control trigger point
+                threshold: 0.1 // trigger when 10% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.IIID-opener, .IIID-opener-2, .ThreeCloser, ._3D-img, ._3D-skills').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const revealOnScroll = () => {
+                const elements = document.querySelectorAll('.three-end');
+                elements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 150 && rect.bottom >= 0) {
+                        element.classList.add('visible');
+                    } else {
+                        element.classList.remove('visible');
+                    }
+                });
+            };
+
+            revealOnScroll();
+
+            window.addEventListener('scroll', revealOnScroll);
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -150px 0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.three-end').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("C3D-slide");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex-1].style.display = "block";  
+        }
+
+    </script>
+
+
+    <script src="../script.js"></script>
+</body>
+</html>
+
