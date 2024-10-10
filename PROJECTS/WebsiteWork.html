@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Urbanist" rel="stylesheet">
+    <title>James' Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/x-icon" href="../Images/favicon.ico">
+    <style>
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .Additional-Opener {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            margin: 13% 12% 12% 12%;
+
+        }
+
+        .ADD-LH, .ADD-RH {
+            overflow: hidden; /* Prevent overflow due to animations */
+            opacity: 0;
+            transform: translateX(-100px); /* Initially positioned off-screen to the left */
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .ADD-RH {
+            transform: translateX(100px); /* Initially positioned off-screen to the right */
+        }
+
+        .ADD-LH.visible, .ADD-RH.visible {
+            opacity: 1;
+            transform: translateX(0); /* Move to original position */
+        }
+
+        .left-site, .right-site{
+            overflow: hidden; /* Prevent overflow due to animations */
+            opacity: 0;
+            transform: translateX(-100px); /* Initially positioned off-screen to the left */
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .right-site {
+            transform: translateX(100px); /* Initially positioned off-screen to the right */
+        }
+
+        .left-site.visible, .right-site.visible {
+            opacity: 1;
+            transform: translateX(0); /* Move to original position */
+        }
+
+        .headline {
+            margin: 10% 0% -2% 0%;
+        }
+
+        .app-sect {
+            row-gap: 20px;
+            justify-items: center;
+            margin: 10%;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+        .appl-right {
+            grid-column: 5 / span 1;
+            grid-row: 1 / span 1;
+        }
+
+        .appl-left {
+            grid-column: 1 / span 1;
+            grid-row: 1 / span 1;
+        }
+
+        .appl-text {
+            grid-column: 2 / span 3;
+            grid-row: 1 / span 1;
+        }
+
+        .appl-text p {
+            text-align: justify;
+            padding: 9% 7%;
+        }
+
+        .appl-right img {
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            width: 10vw;
+        }
+
+        .appl-left img {
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            width: 10vw;
+        }
+
+        .appl-row-1 {
+            grid-column: 1 / span 1;
+            grid-row: 2 / span 1;
+        }
+
+        .appl-row-2 {
+            grid-column: 2 / span 1;
+            grid-row: 2 / span 1;
+        }
+
+        .appl-row-3 {
+            grid-column: 3 / span 1;
+            grid-row: 2 / span 1;
+        }
+
+        .appl-row-4 {
+            grid-column: 4 / span 1;
+            grid-row: 2 / span 1;
+        }
+        .appl-row-5 {
+            grid-column: 5 / span 1;
+            grid-row: 2 / span 1;
+        }
+
+        .sizing img {
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            width: 10vw;
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 750px!important;
+            animation: zoomIn 0.5s ease-in-out; /* Zoom-in effect */
+        }
+
+        .app-sect {
+            opacity: 0 ;
+            transform: translateY(100px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .app-sect.visible {
+            opacity: 1 ;
+            transform: translateY(0px);
+        }
+
+        @media screen and (max-width: 768px) {
+
+        .Additional-Opener {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .Websites-grid {
+            display: flex !important;
+            flex-direction: column;
+            margin: 7% 5% 16% -1%;
+        }
+
+        .nature-section {
+            display: flex !important;
+            flex-direction: column;
+        }
+
+        .app-sect {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sizing img {
+            width: 45vw;
+        }
+
+        .appl-right img {
+            width: 45vw;
+        }
+
+        .appl-left img {
+            width: 45vw;
+        }
+    } 
+
+    .nature-right img {
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        border-radius: 15px;
+        width: 100%;
+    }
+
+    .nature-left img {
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        border-radius: 15px;
+        width: 100%;
+    }
+    .nature-section {
+        margin: 10% 8%;
+        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .nature-left {
+        gap: 5%;
+        padding: 10%;
+        display: grid;
+        grid-column: span 1;
+    }
+
+    .nature-text {
+        padding: 6%;
+        grid-column: span 1;
+    }
+
+    .nature-text p {
+        text-align: justify;
+    }
+
+    .nature-right {
+        gap: 5%;
+        padding: 10%;
+        display: grid;
+        grid-column: span 1;
+    }
+
+    .nature-left {
+        opacity: 0 !important;
+        transform: translateX(-100px);
+        transition: opacity 1.5s ease, transform 1.5s ease;
+    }
+
+    .nature-left.visible {
+        opacity: 1 !important;
+        transform: translateX(0);
+    }
+
+    .nature-right {
+        opacity: 0 !important;
+        transform: translateX(100px);
+        transition: opacity 1.5s ease, transform 1.5s ease;
+    }
+
+    .nature-right.visible {
+        opacity: 1 !important;
+        transform: translateX(0);
+    }
+
+    .nature-text {
+        opacity: 0 ;
+        transform: translateY(100px);
+        transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .nature-text.visible {
+        opacity: 1 ;
+        transform: translateY(0px);
+    }
+
+    .nature-text a {
+        color: #1abc9c;
+    }
+    </style>
+</head>
+<body>
+    <div id="page-transition"></div>
+    <div id="overlay"></div>
+    <div id="content">
+        <header>
+            <div class="logo">
+                <a href="../About.html">
+                    <img src="../Images/LOGO.png" alt="Logo">
+                </a>
+            </div>
+            <nav id="navbar">
+                <div class="hamburger" id="hamburger">&#9776;</div>
+                <ul class="nav-content">
+                    <li><a href="../About.html">About</a></li>
+                    <li><a href="../Portfolio.html">Portfolio</a></li>
+                    <li><a href="../Contact.html">Contact</a></li>
+                    <li><a href="../Experience.html">Experience</a></li>
+                </ul>
+            </nav>
+            <div class="cursor-dot" data-cursor-dot></div>
+            <div class="cursor-outline" data-cursor-outline></div>
+        </header>
+
+        <div class="block"><h1>Website Work (HTML/CSS/JS)</h1></div>
+            <div class="page-heading"><h2>Other Explorations</h2></div>
+                <div class="Additional-Opener">
+                    <div class="ADD-LH">
+                        <p>
+                            In addition to these projects, here I’ve included a section titled 'Other Explorations,' which features smaller projects and experiments. While these works may not showcase the same level of refinement as my main portfolio, they still provide valuable insights into my process and the range of skills I bring to the table.
+                        </p>
+                        <p>
+                            I invite you to explore these subsections of work and get a well-rounded view of my capabilities, here you can see some of my skills in video editing, additional website work and app creation.
+                        </p>
+                    </div>
+                    <div class="ADD-RH">
+                        <img src="../Images/RH.png">
+                    </div>
+                </div>
+        <div class="block"><h1>Websites</h1></div>
+                    <div class="headline"><h2>Silverlake & Spear Graphics</h2></div>
+                <div class="Websites-grid">
+                    <div class="left-site">
+                        <img src="../Images/SILVER.png">
+                        <a href="https://james-odolan.github.io/Silver-Lake/index.html">LINK TO SILVERLAKE</a>
+                    </div>
+                    <div class="right-site">
+                        <img src="../Images/PEARCE.png">
+                        <a href="https://james-odolan.github.io/Pearce-Graphics/">LINK TO PEARCE GRAPHICS</a>
+                    </div>
+                    <div class="text-site">
+                        <p>
+                            On the left is a site for an imagined client at university, called "Silverlake" the brief was to create an interactive mockup of a real theme park website. Including a landing page, ticket page, maps and reviews.
+                        </p>
+                        <p>
+                            On the right is another mock up for a client of our own choice, my choice was for a site for a family friends graphic design business named "Spears Graphics" creating a giftpage, displays of artwork, testimonials and reviews and more.
+                        </p>
+
+                    </div>
+
+                </div>
+                <div class="block"><h1>App</h1></div>
+
+                    <div class="app-sect">
+                        <div class="appl-left">
+                            <img class="lightbox-trigger" src="../Images/app6.png">
+                        </div>
+                        <div class="appl-text">
+                            <p>On the right is another mock up for a client of our own choice, my choice was for a site for a family friends graphic design business named "Spears Graphics" creating a giftpage, displays of artwork, testimonials and reviews and more.<br><br>On the right is another mock up for a client of our own choice, my choice was for a site for a family friends graphic design business named "Spears Graphics" creating a giftpage, displays of artwork, testimonials and reviews and more.</p>
+                        </div>
+                        <div class="appl-right">
+                            <img class="lightbox-trigger" src="../Images/app7.png">
+                        </div>
+                        <div class="appl-row-1 sizing">
+                            <img class="lightbox-trigger" src="../Images/app1.png">
+                        </div>
+                        <div class="appl-row-2 sizing">
+                            <img class="lightbox-trigger" src="../Images/app2.png">
+                        </div>
+                        <div class="appl-row-3 sizing">
+                            <img class="lightbox-trigger" src="../Images/app3.png">
+                        </div>
+                        <div class="appl-row-4 sizing">
+                            <img class="lightbox-trigger" src="../Images/app4.png">
+                        </div>
+                        <div class="appl-row-5 sizing">
+                            <img class="lightbox-trigger" src="../Images/app5.png">
+                        </div>
+
+
+                    </div>
+                        <div class="block"><h1>Interactive Web Game</h1></div>
+
+                        <div class="nature-section">
+                            <div class="nature-left">
+                                <img src="../Images/g-1.png">
+                                <img src="../Images/g-2.png">
+                            </div>
+
+                        <div class="nature-text">
+                            <p>Another project I made was an interactive web game. This was set for a younger audience and was another project in university. Now expanding from basic HTML towards JavaScript and Jquery specifically.</p>
+                            <p>Definitely a challenge, but I learnt a lot about responsiveness, adding sound, animations and game features like drag and drop. On top of this I also created every single individual asset that you can see, creating it all in illustrator mainly, with a few decorative additional features from Photoshop.</p>
+                            <p>The project really helped me develop skills for creating both interactive code and vector art. Refining things with features like gradients, drop shadows and bevelling to give the game its unique visual. </p>
+                            <a href="https://james-odolan.github.io/Wildlife-Wonders/">LINK TO WILDLIFE WONDERS GAME</a>
+                        </div>
+
+                        <div class="nature-right">
+                                <img src="../Images/g-3.png">
+                                <img src="../Images/g-4.png">
+                            </div>
+                        </div>
+            <div id="lightbox" class="lightbox">
+                <span class="close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to handle adding and removing the 'visible' class
+        const revealOnScroll = () => {
+            const elements = document.querySelectorAll('.ADD-LH, .ADD-RH, .left-site, .right-site, .app-sect, .nature-left, .nature-right, .nature-text');
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 150 && rect.bottom >= 0) { // Adjust the -150 value as needed
+                    element.classList.add('visible');
+                } else {
+                    element.classList.remove('visible');
+                }
+            });
+        };
+
+        // Initial check in case elements are already in view
+        revealOnScroll();
+
+        // Add scroll event listener
+        window.addEventListener('scroll', revealOnScroll);
+
+        // Use Intersection Observer for better performance
+        const observerOptions = {
+            root: null, // relative to viewport
+            rootMargin: '0px 0px -150px 0px', // Adjust the bottom margin to control trigger point
+            threshold: 0.1 // trigger when 10% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.ADD-LH, .ADD-RH, .left-site, .right-site, .app-sect, .nature-left, .nature-right, .nature-text').forEach(element => {
+            observer.observe(element);
+        });
+    });
+</script>
+    <script src="../Script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Urbanist" rel="stylesheet">
+    <title>James' Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/x-icon" href="../Images/favicon.ico">
+
+    <style>
+        /* General Styles */
+
+h1 {
+    
+}
+
+body {
+
+
+}
+.page-heading {
+    margin: 5% 0% 5% 0%;
+}
+
+
+
+.remove {
+    opacity: 0 !important;
+    transform: translateY(50px);
+    transition: opacity 2s ease, transform 2s ease;
+}
+
+.remove.visible {
+    opacity: 1 !important;
+    transform: translateY(0px);
+}
+
+
+.remove-2 {
+    opacity: 0 ;
+    transform: scale(0.6);
+    transition: opacity 2s ease, transform 2s ease;
+}
+
+.remove-2.visible {
+    opacity: 1 ;
+    transform: scale(1);
+}
+
+.open p, .rb-type p {
+    margin: 0;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    text-align: justify;
+}
+
+.back p {
+    font-size: 0.8em;
+
+}
+
+.social-slideshow-container {
+    margin: 7% auto 12% auto;
+    position: relative;
+    width: 80vw;
+    overflow: hidden;
+    padding: 10px;
+}
+
+/* Style for the slideshow */
+.social-slideshow {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Individual slides (contain three images per slide) */
+.social-slide {
+    display: flex;
+    min-width: 100%;
+    justify-content: space-around;
+}
+
+.social-slide img {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    width: 30%;
+    height: auto;
+}
+
+/* Left and right buttons */
+.social-prev, .social-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 16px;
+    z-index: 1;
+}
+
+.social-prev {
+    left: 0;
+}
+
+.social-next {
+    right: 0;
+}
+
+.secta-3-p p {
+    line-height: 1.6;
+    text-align: justify;
+
+}
+
+/* Optional: Styling for hover effects on buttons */
+.social-prev:hover, .social-next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+
+@media only screen and (max-width: 768px) {
+    .social-slide {
+        display: flex;
+        overflow: hidden; /* Hide overflow to prevent overlap */
+        flex-direction: row; /* Keep images aligned in a row */
+        width: 100vw; /* Make sure the container spans the full screen width */
+        max-width: 100%; /* Prevent exceeding the screen width */
+    }
+
+    .social-slide img {
+        min-width: 55%;        
+        height: auto; /* Ensure images resize properly */
+        margin: 0 auto; /* Center the images */
+    }
+
+}
+    </style>
+
+
+</head>
+<body class="fade-out">
+    <div id="page-transition"></div>
+    <div id="overlay"></div>
+    <div id="content">
+        <header>
+            <div class="logo">
+                <a href="../About.html">
+                    <img src="../Images/LOGO.png" alt="Logo">
+                </a>
+            </div>
+            <nav id="navbar">
+                <div class="hamburger" id="hamburger" onclick="toggleNavbar()">&#9776;</div>
+                <ul class="nav-content">
+                    <li><a href="../About.html">About</a></li>
+                    <li><a href="../Portfolio.html">Portfolio</a></li>
+                    <li><a href="../Contact.html">Contact</a></li>
+                    <li><a href="../Experience.html">Experience</a></li>
+                </ul>
+            </nav>
+            <div class="cursor-dot" data-cursor-dot></div>
+            <div class="cursor-outline" data-cursor-outline></div>
+        </header>
+
+        <div class="block"><h1>Brochure Project</h1></div>
+            <div class="page-heading"><h2> Poster, Brochures and Layout</h2></div>
+        <section class="remove">
+
+            <div class="brocs">
+                <div class="open">
+                    <p>While I was enjoying my social media artworking, I realised that there were still some weak points in my typography and sometimes layout. I wanted to challenge myself and overcome this to expand my skill range. It was also during this time that I was seeing many poster designs online and that inspired me to do this.</p>
+                </div>
+                <img src="../Images/BI1.png" class="lightbox-trigger" alt="Brochure 1">
+                <img src="../Images/BI2.png" class="lightbox-trigger" alt="Brochure 2">
+                <img src="../Images/BI3.png" class="lightbox-trigger" alt="Brochure 3">
+            </div>
+        </section>
+
+        <section class="secta1">
+            <div class="remove-2">
+                <div class="brocs-alt">
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <img src="../Images/POS.png" alt="Front">
+                            <div class="back">
+                                <p>
+                                Firstly I worked on improving the typography, so I started looking up the rules of typography. Using contrast in fonts, being selective with what fits coherently to the theme of the design. This was difficult at first so I would sit and watch many tutorials.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <img src="../Images/POS2.png" alt="Front">
+                            <div class="back">
+                                <p>
+                                While enjoying my social media artwork, I noticed weaknesses in my typography and layout. To challenge myself, I drew inspiration from posters and decided to design three complex sets to learn more about bold, strong poster design. Here's what I created.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <img src="../Images/POS3.png" alt="Front">
+                            <div class="back">
+                                <p>
+                                 I also focused on incorporating textures, patterns and imagery that aligned with the poster's theme. Balancing visuals without overpowering the design was tricky, so I practiced not taking the creativity so far that the meaning or original aim was lost. 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rb-type">
+                        <p>I set my self the task of more complex poster designing to help me learn more indepth about what creates a strong, bold poster design. So, working in sets of three at a time. This is what i came up with.</p>
+                    </div>
+                </div>
+            </div>
+            </section>
+
+            <section class="secta3">
+                <div class="reveal-block">
+                    <div class="brocs-3">
+                        <div class="secta-3-p">
+                            <p>As you can see here I was slowly getting the hang of text postitioning, font choice and the concept of negative space. Experimenting with all capitals, font choice. The next steps I wanted to master were hierarchy of information and visual font contrast</p>
+                        </div>
+                        <img src="../Images/P1.png" class="lightbox-trigger" alt="Brochure 4">
+                        <img src="../Images/P2.png" class="lightbox-trigger" alt="Brochure 5">
+                        <img src="../Images/P3.png" class="lightbox-trigger" alt="Brochure 6">
+                    </div>
+                </div>
+            </section>
+
+            <div class="block2"><h1> Skills Used </h1></div>
+            <section class="secta2">
+            <div class="reveal-block">
+                <div class="brocs-2">
+                    <div class="learned">
+                        <p>
+                            Grid Systems in Photoshop - I researched grid systems in Photoshop, focusing on macro and micro spacing techniques to optimize text and image layouts. This enhanced the balance and flow of my designs, ensuring all elements harmonize.
+                        </p>
+                        <img src="../Images/Ethereal1.png" class="lightbox-trigger" alt="Brochure 7">
+                    </div>
+                    <div class="learned">
+                        <p>
+                            Typography Research - I explored typography through blogs and YouTube, learning to create designs that are cohesive and legible. This research helped me apply best practices in font selection, spacing, and alignment for a more polished final product.
+                        </p>
+                        <img src="../Images/Celestial1.png" class="lightbox-trigger" alt="Brochure 8">
+                    </div>
+                    <div class="learned">
+                        <p>Typography Experimentation - Experimenting with various fonts gave me a better understanding of typography. I learned which styles fit different contexts, improving both readability and the overall visual appeal of my designs.</p>
+                        <img src="../Images/Jungle1.png" class="lightbox-trigger" alt="Brochure 9">
+                    </div>
+                </div>
+            </div>
+            </section>
+
+    <div class="social-slideshow-container reveal-block">
+        <button class="social-prev" onclick="moveSlides(-1)">&#10094;</button>
+        <div class="social-slideshow" id="social-slideshow">
+            <div class="social-slide">
+                <img src="../Images/CURVE-1.png" class="lightbox-trigger" alt="Image 1">
+                <img src="../Images/CURVE-2.png" class="lightbox-trigger" alt="Image 2">
+                <img src="../Images/CURVE-3.png" class="lightbox-trigger" alt="Image 3">
+            </div>
+            <div class="social-slide">
+                <img src="../Images/coy.png" class="lightbox-trigger" alt="Image 1">
+                <img src="../Images/CURVE-2.png" class="lightbox-trigger" alt="Image 2">
+                <img src="../Images/CURVE-3.png" class="lightbox-trigger" alt="Image 3">
+            </div>
+            <div class="social-slide">
+                <img src="../Images/CURVE-1.png" class="lightbox-trigger" alt="Image 1">
+                <img src="../Images/CURVE-2.png" class="lightbox-trigger" alt="Image 2">
+                <img src="../Images/CURVE-3.png" class="lightbox-trigger" alt="Image 3">
+            </div>
+            <!-- Add more slides as needed -->
+        </div>
+        <button class="social-next" onclick="moveSlides(1)">&#10095;</button>
+    </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="social-icons">
+                    <a href="../linkICO"><i class="fab fa-facebook-f"></i></a>
+                    <a href="../linkICO"><i class="fab fa-instagram"></i></a>
+                    <a href="../linkICO"><i class="fab fa-twitter"></i></a>
+                    <a href="../linkICO"><i class="fab fa-google-plus-g"></i></a>
+                </div>
+                <div class="contact-info">
+                    <p>Email: jamesedward.odolan@gmail.com</p>
+                    <p>Phone: +1 234 567 890</p>
+                </div>
+                <div class="quick-links">
+                    <a href="../Portfolio.html">Home</a>
+                    <a href="../About.html">About</a>
+                    <a href="../Contact.html">Contact</a>
+                    <a href="../Experience.html">Experience</a>
+                </div>
+                <div class="company-info">
+                    <p>My Website is dedicated to providing top-notch services. My mission is to.</p>
+                </div>
+                <p>&copy; 2024; Designed by James O'Dolan</p>
+            </div>
+        </footer>
+
+        <!-- Lightbox HTML -->
+        <div id="lightbox" class="lightbox">
+            <span class="close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
+
+
+    </div>
+        <script>
+            // Initialize slide index
+            let currentSlide = 0;
+
+            // Function to move the slides
+            function moveSlides(direction) {
+                const slideshow = document.getElementById('social-slideshow');
+                const totalSlides = document.querySelectorAll('.social-slide').length;
+
+                // Update current slide index
+                currentSlide += direction;
+
+                // Wrap around if needed
+                if (currentSlide < 0) {
+                    currentSlide = totalSlides - 1;
+                } else if (currentSlide >= totalSlides) {
+                    currentSlide = 0;
+                }
+
+                // Move the slideshow
+                slideshow.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const revealBlocks = document.querySelectorAll('.remove-2, .remove, .reveal-block');
+
+                function checkVisibility() {
+                    const windowHeight = window.innerHeight;
+                    revealBlocks.forEach(block => {
+                        const rect = block.getBoundingClientRect();
+                        if (rect.top < windowHeight * 0.85 && rect.bottom > windowHeight * 0.15) {
+                            block.classList.add('visible');
+                        } else {
+                            block.classList.remove('visible');
+                        }
+                    });
+                }
+
+                window.addEventListener('scroll', checkVisibility);
+                checkVisibility(); // Initial check on page load
+            });
+
+
+        </script>
+
+       <script defer src="../Script.js"></script>
+</body>
+</html>

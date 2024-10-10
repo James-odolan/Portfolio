@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Urbanist" rel="stylesheet">
+    <title>James' Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/x-icon" href="../Images/favicon.ico">
+    <style>
+        .LEEDS-slideshow-container, .le-text {
+            overflow: hidden; /* Prevent overflow due to animations */
+            opacity: 0;
+            transform: translateX(-100px); /* Initially positioned off-screen to the left */
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .le-text {
+            transform: translateX(100px); /* Initially positioned off-screen to the right */
+        }
+
+        .LEEDS-slideshow-container.visible, .le-text.visible {
+            opacity: 1;
+            transform: translateX(0); /* Move to original position */
+        }
+
+        .page-heading {
+            margin: 8% 0% 1% 0%;
+        }
+
+        .leeds-grid {
+            opacity: 0 !important;
+            transform: translateY(100px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .leeds-grid.visible {
+            opacity: 1 !important;
+            transform: translateY(0px);
+        }
+
+        .l-text {
+            opacity: 0 !important;
+            transform: translateX(100px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .l-text.visible {
+            opacity: 1 !important;
+            transform: translateX(0px);
+        }
+
+        .LEEDS-slideshow-container {
+            flex: 1;
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, 
+                        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+                        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        }
+
+        .LEEDS-slide {
+            display: none;
+        }
+
+        .LEEDS-slide img {
+            width: 100%;
+        }
+
+        .LEEDS-prev, .LEEDS-next {
+            background-color: rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+            position: absolute;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            user-select: none;
+            top: 40%;
+        }
+
+        .LEEDS-next {
+            right: 0;
+        }
+
+        .LEEDS-prev:hover, .LEEDS-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .LEEDS-fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        @media screen and (max-width: 768px) {
+            
+            .le-text {
+                margin-left: 0px ;
+        }
+
+            .LeedsOpener {
+                padding: 0px 0px;
+                flex-direction: column;
+                gap: 20px;
+                height: 100%;
+                animation-range: entry 0% cover 55%;
+        }
+
+        .LEEDS-slideshow-container {
+                margin: 0px 37px 0px 25px;
+        }
+
+        .leeds-mid {
+                flex-direction: column;
+        }
+
+        .egypt-posters {
+                grid-template-columns: 1fr;
+        }
+
+        .leeds-low {
+                flex-direction: column;
+        }
+
+        .lcm-logos {
+            grid-template-columns: 1fr;
+        }
+
+        .leeds-end {
+            overflow-x: hidden;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .leeds-grid {
+            padding: 2%;
+        }
+
+        .l-text {
+            padding: 5%;
+        }
+
+        .bill {
+            transform: scale(1);
+        }
+    }
+
+        @media screen and (max-width: 768px) {
+
+        .egypt-text {
+            width: 70vw;
+            padding: 0;
+        }
+
+        .lcm-text {
+            width: 70vw;
+            padding: 0;
+        }
+
+    }
+
+    .leeds-mid, .leeds-low {
+        opacity: 0 !important;
+        transform: scale(0) rotate(-180deg);
+        transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .leeds-mid.visible, .leeds-low.visible {
+        opacity: 1 !important;
+        transform: scale(1) rotate(0deg);
+    }
+</style>
+
+
+
+</head>
+<body>
+    <div id="page-transition"></div>
+    <div id="overlay"></div>
+    <div id="content">
+        <header>
+            <div class="logo">
+                <a href="../About.html">
+                    <img src="../Images/LOGO.png" alt="Logo">
+                </a>
+            </div>
+            <nav id="navbar">
+                <div class="hamburger" id="hamburger">&#9776;</div>
+                <ul class="nav-content">
+                    <li><a href="../About.html">About</a></li>
+                    <li><a href="../Portfolio.html">Portfolio</a></li>
+                    <li><a href="../Contact.html">Contact</a></li>
+                    <li><a href="../Experience.html">Experience</a></li>
+                </ul>
+            </nav>
+            <div class="cursor-dot" data-cursor-dot></div>
+            <div class="cursor-outline" data-cursor-outline></div>
+        </header>
+
+    <div class="block"><h1>Visual Communications Project</h1></div>
+                <div class="page-heading"><h2> Leeds Museum Promotion </h2></div>
+
+    <div class="LeedsOpener">
+        <div class="le-text">
+            <p>This was one of the early graphic design projects that I had during my time at Leeds Beckett University, as you can see there was a heavy amount of research for this project, into branding and visual imagery for the promotion. The task was to create an imagined rebranding for Leeds City Museum including brand guidelines, colour scheme, fonts and all other necessary matertials.</p>
+        </div>
+
+
+            <div class="LEEDS-slideshow-container">
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-1.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-2.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-3.png" loading="lazy" style="width:100%">
+                </div>
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-4.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-5.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-6.png" loading="lazy" style="width:100%">
+                </div>
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-7.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-8.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-9.png" loading="lazy" style="width:100%">
+                </div>
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-10.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-11.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-12.png" loading="lazy" style="width:100%">
+                </div>
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-13.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-14.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-15.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-16.png" loading="lazy" style="width:100%">
+                </div>
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-17.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-18.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-19.png" loading="lazy" style="width:100%">
+                </div>
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-20.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-21.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-22.png" loading="lazy" style="width:100%">
+                </div>
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-23.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-24.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-25.png" loading="lazy" style="width:100%">
+                </div>
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-26.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-27.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-28.png" loading="lazy" style="width:100%">
+                </div>
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-29.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-30.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-31.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-32.png" loading="lazy" style="width:100%">
+                </div>
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-33.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-34.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-35.png" loading="lazy" style="width:100%">
+                </div>
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-36.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-37.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-38.png" loading="lazy" style="width:100%">
+                </div>
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-39.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-40.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-41.png" loading="lazy" style="width:100%">
+                </div>
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-42.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-43.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-44.png" loading="lazy" style="width:100%">
+                </div>
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-45.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-46.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-47.png" loading="lazy" style="width:100%">
+                </div>
+
+                <div class="LEEDS-slide LEEDS-fade">
+                    <img src="../Images/LEEDS-slide-48.png" loading="lazy" style="width:100%">
+                </div>
+
+
+                <!-- Navigation buttons -->
+                <a class="LEEDS-prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="LEEDS-next" onclick="changeSlide(1)">&#10095;</a>
+            </div>
+        </div> 
+
+<div class="block2"><h1>Poster Work</h1></div>
+
+<section class="leeds">
+<div class="leeds-mid">
+    <div class="egypt-text">
+        <p>As you can see in these ancient Egypt poster designs this is where I really started to learn more about graphic design. Playing around with a visual effects like graininess, overlay styles and outer glows.  This is still early on so some work was still yet to be desired but I think it’s a great example of the growth that I’ve experienced when contrasting this stuff with my new work. I took advantage of this project to experiment as much as possible.
+        </p>
+    </div>
+    <div class="egypt-posters">
+        <div class="e-poster1 BOR"><img src="../Images/E1.png" width="200"></div>
+        <div class="e-poster2 BOR"><img src="../Images/E2.png" width="200"></div>
+        <div class="e-poster3 BOR"><img src="../Images/E3.png" width="200"></div>
+    </div>
+</div>
+
+<div class="leeds-low">
+    <div class="lcm-text">
+        <p>Here again you can see the posters logo designs I was trying to work on colour theory so as you can see are experimented with different shades and contrasts and learnt more about colour libraries and what is best to apply in which context furthermore learning about conventions of colour theory.</p>
+    </div>
+    <div class="lcm-logos">
+        <div class="L-logo1 BOR"><img src="../Images/LCM.png"  loading="lazy" width="200"></div>
+        <div class="L-logo2 BOR"><img src="../Images/LCM2.png"  loading="lazy" width="200"></div>
+        <div class="L-logo4 BOR"><img src="../Images/LCM4.png"  loading="lazy" width="200"></div>
+    </div>
+</div>
+</section>
+            <div class="block">
+                <h1>Skills Used</h1>
+            </div>
+
+<div class="leeds-end">
+    <div class="leeds-grid">
+        <div class="L-im1">
+            <img src="../Images/bus.png"  loading="lazy" width="370">    
+        </div>
+        <div class="L-im2">
+            <img src="../Images/site.png"  loading="lazy" width="180"> 
+        </div>
+        <div class="L-im3">
+            <img src="../Images/flyer.png"  loading="lazy" width="180"> 
+        </div>
+        <div class="L-im4">
+            <img src="../Images/sign.png"  loading="lazy" width="370"> 
+        </div>
+    </div>
+    <div class="l-text">
+                <div>
+                    <img class="bill" src="../Images/billboard.png">
+                </div>
+        <div class="l-text-flex">
+                <div>
+                    <p>I learned to use the tools in Adobe Illustrator to shape and edit certain aspects of my design such as the creation of the rebranded museum logo, further developing my skills in the software</p>
+                </div>
+                <div>
+                    <p>In Adobe Photoshop I used the pen tool, gradients and other tools to create different designs for exhibition posters. This also taught me to work my way round issues with the variety of tools available.</p>
+                </div>
+                <div>
+                    <p>Planning and preparation was a key takeaway. I heavily researched into other brands doing similar campaigns, implementing things such as brand guidelines, colour scheme and fonts.</p>
+                </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <script>    
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("LEEDS-slide");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex-1].style.display = "block";  
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to handle adding and removing the 'visible' class
+            const revealOnScroll = () => {
+                const elements = document.querySelectorAll('.leeds-grid, .l-text, .LEEDS-slideshow-container, .le-text, .leeds-mid, .leeds-low');
+                elements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 150 && rect.bottom >= 0) { // Adjust the -150 value as needed
+                        element.classList.add('visible');
+                    } else {
+                        element.classList.remove('visible');
+                    }
+                });
+            };
+
+            // Initial check in case elements are already in view
+            revealOnScroll();
+
+            // Add scroll event listener
+            window.addEventListener('scroll', revealOnScroll);
+
+            // Use Intersection Observer for better performance
+            const observerOptions = {
+                root: null, // relative to viewport
+                rootMargin: '0px 0px -150px 0px', // Adjust the bottom margin to control trigger point
+                threshold: 0.1 // trigger when 10% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.arrange').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+
+            
+    <script src="../script.js"></script>
+</body>
+</html>
+
