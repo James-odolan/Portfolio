@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Urbanist" rel="stylesheet">
+    <title>James' Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/x-icon" href="../Images/favicon.ico">
+    <style>
+        h3 {
+            font-family: 'Urbanist', Arial, sans-serif;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+.pho-slideshow-container {
+    position: relative;
+    max-width: 100%;
+    height: 55vh; /* Adjust height to 60vh */
+    margin-top: 15%;
+    overflow: hidden;
+}
+
+.pho-myslides {
+    position: absolute;
+    width: 100%;
+    height: 60vh; /* Adjust height to 60vh */
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0; /* Hide slides by default */
+}
+
+/* Show the current slide */
+.pho-myslides.show {
+    opacity: 1;
+}
+
+/* Slide in from the right */
+@keyframes slide-right {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide in from the left */
+@keyframes slide-left {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide out to the left */
+@keyframes slide-out-left {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+/* Slide out to the right */
+@keyframes slide-out-right {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+.grid-cent {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-pho-2 {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 13%;
+    row-gap: 5%;
+    align-items: center;
+}
+
+.grid-pho-2 img {
+    width: 160px;
+    border: inset;
+    border-width: 3px;
+    border-color: white;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Dots/bullets */
+.dot-container {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+
+
+.lamp {
+    position: absolute;
+    bottom: 1%;
+    left: 0%;
+    z-index: 10;
+}
+
+.page-heading {
+    margin: 6% 0% -2.5% 0%;
+}
+
+
+    @media screen and (max-width: 768px) {
+        .photo-line {
+            flex-direction: column;
+        }
+
+        .photo-text {
+                text-align: center;
+                padding: 20px
+        }
+
+        .photo-line {
+            margin: 10% 5% 8% 5%;
+            height: 21vh;
+        }
+
+        .parallax-scene{
+            height: 10vh;
+        }
+
+        .grid-container-p {
+            padding: 2.6vh 10.8vw 3.2vh 10.8vw;
+        }
+
+        .grid-item-p img {
+
+            border: 2px solid #1abc9c;
+
+        }
+}
+    </style>
+</head>
+<body class="fade-out">
+    <div id="page-transition"></div>
+    <div id="overlay"></div>
+    <div id="content">
+        <header>
+            <div class="logo">
+                <a href="../About.html">
+                    <img src="../Images/LOGO.png" alt="Logo">
+                </a>
+            </div>
+            <nav id="navbar">
+                <div class="hamburger" id="hamburger">&#9776;</div>
+                <ul class="nav-content">
+                    <li><a href="../About.html">About</a></li>
+                    <li><a href="../index.html">Portfolio</a></li>
+                    <li><a href="../Contact.html">Contact</a></li>
+                    <li><a href="../Experience.html">Experience</a></li>
+                </ul>
+            </nav>
+            <div class="cursor-dot" data-cursor-dot></div>
+            <div class="cursor-outline" data-cursor-outline></div>
+        </header>
+        <section class="block">
+            <h1>Photography Project</h1>
+        </section>
+
+        <div class="page-heading"><h2> Visual Stories </h2></div>
+
+        <section class="photo-line">
+            <div class="photo-container">
+                <img src="../Images/trees.jpg" alt="Image 1" class="photo-image">
+                <img src="../Images/dock.jpg" alt="Image 2" class="photo-image">
+                <img src="../Images/greece.jpg" alt="Image 3" class="photo-image">
+            </div>
+            <p class="photo-text">This section features all of my favourite photos that I have taken on both Iphone 13 Pro and DSLR Cameras I get such joy out of taking the perfect photo and then seeing if I can implement my own creativity into it by taking the photo into a software like snapseed, or lightroom to make subtle touches to it.</p>
+        </section>
+
+        <section class="photo-line">
+            <p class="photo-text-2">Learning photography involves developing technical skills such as understanding lighting, composition, exposure, and shutter speed, as well as creative skills such as capturing emotion, telling a story, and eliciting an emotional response from viewers.</p>
+            <div class="photo-container-reverse">
+                <img src="../Images/cat.jpg" alt="Image 1" class="photo-image-reverse lightbox-trigger">
+                <img src="../Images/hand.jpg" alt="Image 2" class="photo-image-reverse lightbox-trigger">
+                <img src="../Images/glass.jpg" alt="Image 3" class="photo-image-reverse lightbox-trigger">
+            </div>
+        </section>
+
+
+        <section class="block">
+            <h1>Take a look..</h1>
+            <div class="grid-pho"></div>
+        </section>
+
+
+
+<section>
+        <div class="slideshow-container">
+        <!-- Grid 1 as Slide 1 -->
+        <div class="slide-p">
+            <div class="grid-container-p a-grid-p">
+                <div class="grid-item-p">
+                    <img src="photo/p1.jpeg" alt="Image 1" onclick="openLightboxP('a', 1)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p2.jpeg" alt="Image 2" onclick="openLightboxP('a', 2)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p3.jpg" alt="Image 3" onclick="openLightboxP('a', 3)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p4.jpeg" alt="Image 4" onclick="openLightboxP('a', 4)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p5.jpg" alt="Image 5" onclick="openLightboxP('a', 5)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p6.jpg" alt="Image 6" onclick="openLightboxP('a', 6)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p7.jpg" alt="Image 7" onclick="openLightboxP('a', 7)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p8.jpg" alt="Image 8" onclick="openLightboxP('a', 8)">
+                </div>
+                <!-- Add more grid items as needed -->
+            </div>
+        </div>
+
+        <!-- Grid 2 as Slide 2 -->
+        <div class="slide-p">
+            <div class="grid-container-p b-grid-p">
+                <div class="grid-item-p">
+                    <img src="photo/p9.jpg" alt="Image 9" onclick="openLightboxP('b', 1)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p10.jpg" alt="Image 10" onclick="openLightboxP('b', 2)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p11.jpg" alt="Image 11" onclick="openLightboxP('b', 3)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p12.jpg" alt="Image 12" onclick="openLightboxP('b', 4)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p13.jpg" alt="Image 13" onclick="openLightboxP('b', 5)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p14.jpg" alt="Image 14" onclick="openLightboxP('b', 6)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p15.jpeg" alt="Image 15" onclick="openLightboxP('b', 7)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p16.jpeg" alt="Image 16" onclick="openLightboxP('b', 8)">
+                </div>
+                <!-- Add more grid items as needed -->
+            </div>
+        </div>
+
+        <!-- Grid 3 as Slide 3 -->
+        <div class="slide-p">
+            <div class="grid-container-p c-grid-p">
+                <div class="grid-item-p">
+                    <img src="photo/p17.jpeg" alt="Image 17" onclick="openLightboxP('c', 1)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p18.jpeg" alt="Image 18" onclick="openLightboxP('c', 2)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p19.jpeg" alt="Image 19" onclick="openLightboxP('c', 3)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p20.jpg" alt="Image 20" onclick="openLightboxP('c', 4)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p21.jpg" alt="Image 21" onclick="openLightboxP('c', 5)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p22.jpg" alt="Image 22" onclick="openLightboxP('c', 6)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p23.jpg" alt="Image 23" onclick="openLightboxP('c', 7)">
+                </div>
+                <div class="grid-item-p">
+                    <img src="photo/p20.jpeg" alt="Image 24" onclick="openLightboxP('c', 8)">
+                </div>
+                <!-- Add more grid items as needed -->
+            </div>
+        </div>
+
+        <!-- Navigation arrows -->
+        <a class="prev-p" onclick="plusSlidesP(-1)">&#10094;</a>
+        <a class="next-p" onclick="plusSlidesP(1)">&#10095;</a>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox-p">
+        <span class="close-p cursor-p" onclick="closeLightboxP()">&times;</span>
+        <div id="lightbox-content" class="lightbox-content-p">
+            <!-- Lightbox slides will be inserted dynamically -->
+        </div>
+        <a class="prev-p" onclick="changeLightboxSlideP(-1)">&#10094;</a>
+        <a class="next-p" onclick="changeLightboxSlideP(1)">&#10095;</a>
+    </div>
+</section>
+
+<!-- <div class="lamp"><img src="../Images/lamp.png" width="240px" height="auto"></div>-->
+
+<section class="parallax-scene">
+    <div class="couch">
+        <img src="../Images/couch.png" loading="lazy"  alt="Couch">
+    </div>
+</section>
+    </div>
+  
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const couch = document.querySelector('.couch');
+            const photos = document.querySelector('.photos');
+            const photoImages = document.querySelectorAll('.photo-image');
+
+            // Function to handle the scroll event
+            function handleScroll() {
+                const scrollY = window.scrollY;
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                const scrollBottom = scrollY + windowHeight;
+
+                // Handle Couch Animation
+                if (scrollBottom >= documentHeight - 50) { // Trigger when near the bottom
+                    couch.style.transform = 'translateX(-50%) translateY(0)';
+                } else {
+                    couch.style.transform = 'translateX(-50%) translateY(100%)';
+                }
+
+                // Handle Photos Animation
+                photoImages.forEach(photo => {
+                    const photoTop = photo.getBoundingClientRect().top;
+                    const triggerPoint = windowHeight * 0.7;
+
+                    if (photoTop < triggerPoint) {
+                        photo.classList.add('in-view');
+                    } else {
+                        photo.classList.remove('in-view');
+                    }
+                });
+            }
+
+            // Attach the scroll event listener
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Trigger scroll check on load
+        });
+    </script>
+
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const photoImages = document.querySelectorAll('.photo-image');
+            const photoImagesReverse = document.querySelectorAll('.photo-image-reverse');
+
+            function handleScroll() {
+                const windowHeight = window.innerHeight;
+
+                photoImages.forEach(photo => {
+                    const photoTop = photo.getBoundingClientRect().top;
+                    const triggerPoint = windowHeight * 0.7;
+
+                    if (photoTop < triggerPoint) {
+                        photo.classList.add('in-view');
+                    } else {
+                        photo.classList.remove('in-view');
+                    }
+                });
+
+                // Handle reverse images scrolling in from right
+                photoImagesReverse.forEach(photo => {
+                    const photoTop = photo.getBoundingClientRect().top;
+                    const triggerPoint = windowHeight * 0.7;
+
+                    if (photoTop < triggerPoint) {
+                        photo.classList.add('in-view-reverse');
+                    } else {
+                        photo.classList.remove('in-view-reverse');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Trigger scroll check on load
+        });
+    </script>
+
+    <script>
+        let slideIndexP = 1;
+        let lastSlideIndexP = 1; // Keep track of the last slide index
+        let currentLightboxTypeP = 'a'; // Default grid type
+
+        // Show the first slide initially
+        showSlidesP(slideIndexP);
+
+        // Open the lightbox with images from the specific grid
+        function openLightboxP(gridType, n) {
+            currentLightboxTypeP = gridType;
+            const lightboxP = document.getElementById('lightbox');
+            lightboxP.style.display = 'block'; // Make it block to show
+            lightboxP.classList.add('open-p'); // Add class to trigger transition
+            showLightboxSlidesP(n);
+        }
+
+        // Close the lightbox
+        function closeLightboxP() {
+            const lightboxP = document.getElementById('lightbox');
+            lightboxP.classList.remove('open-p'); // Remove class to trigger transition
+            setTimeout(() => {
+                lightboxP.style.display = 'none'; // Hide after transition
+            }, 500); // Match the duration of the transition
+        }
+
+        // Move to the next/previous slide in the slideshow
+        function plusSlidesP(n) {
+            lastSlideIndexP = slideIndexP;
+            slideIndexP += n;
+            showSlidesP(slideIndexP, n);
+        }
+
+        // Show the current slide in the slideshow
+        function currentSlideP(n) {
+            lastSlideIndexP = slideIndexP;
+            slideIndexP = n;
+            showSlidesP(slideIndexP);
+        }
+
+        // Display the slides and ensure correct images are shown
+        function showSlidesP(n, direction) {
+            let slidesP = document.getElementsByClassName('slide-p');
+            let totalSlides = slidesP.length;
+
+            if (n > totalSlides) {
+                slideIndexP = 1;
+            }
+            if (n < 1) {
+                slideIndexP = totalSlides;
+            }
+
+            // Remove the 'show' and animation classes from all slides
+            for (let i = 0; i < totalSlides; i++) {
+                slidesP[i].classList.remove('show-p', 'scale-in-p', 'scale-out-p');
+            }
+
+            // Add 'scale-in' and 'scale-out' classes based on the direction
+            if (direction === undefined) {
+                // Default transition
+                slidesP[slideIndexP - 1].classList.add('scale-in-p', 'show-p');
+            } else {
+                if (direction > 0) {
+                    // Moving to the next slide
+                    slidesP[slideIndexP - 1].classList.add('scale-in-p', 'show-p');
+                    slidesP[lastSlideIndexP - 1].classList.add('scale-out-p');
+                } else {
+                    // Moving to the previous slide
+                    slidesP[slideIndexP - 1].classList.add('scale-in-p', 'show-p');
+                    slidesP[lastSlideIndexP - 1].classList.add('scale-out-p');
+                }
+            }
+
+            // Delay to allow the outgoing slide to complete its transition
+            setTimeout(() => {
+                for (let i = 0; i < totalSlides; i++) {
+                    if (i !== slideIndexP - 1) {
+                        slidesP[i].classList.remove('show-p');
+                    }
+                }
+            }, 1000); // Match the duration of the animation
+        }
+
+        // Show the lightbox images based on the grid type
+        function showLightboxSlidesP(n) {
+            let lightboxContentP = document.getElementById('lightbox-content');
+            lightboxContentP.innerHTML = ''; // Clear previous images
+
+            let imageSourcesP = {
+                'a': ['photo/p1.jpeg', 'photo/p2.jpeg', 'photo/p3.jpeg', 'photo/p4.jpeg', 'photo/p5.jpeg', 'photo/p6.jpg', 'photo/p7.jpg', 'photo/p8.jpg'], // Add the correct image paths
+                'b': ['photo/p9.jpg', 'photo/p10.jpg', 'photo/p11.jpg', 'photo/p12.jpg', 'photo/p13.jpg', 'photo/p14.jpg', 'photo/p15.jpeg', 'photo/p16.jpeg'], // Add the correct image paths
+                'c': ['photo/p17.jpeg', 'photo/p18.jpeg', 'photo/p19.jpeg', 'photo/p20.jpg', 'photo/p21.jpg', 'photo/p22.jpg', 'photo/p23.jpg', 'photo/p20.jpeg']  // Add the correct image paths
+            };
+
+            let images = imageSourcesP[currentLightboxTypeP];
+            if (n > images.length) {
+                n = 1;
+            }
+            if (n < 1) {
+                n = images.length;
+            }
+
+            // Create lightbox slides
+            for (let i = 0; i < images.length; i++) {
+                let img = document.createElement('img');
+                img.src = images[i];
+                img.alt = `Lightbox Image ${i + 1}`;
+                if (i + 1 === n) {
+                    img.style.display = 'block';
+                } else {
+                    img.style.display = 'none';
+                }
+                lightboxContentP.appendChild(img);
+            }
+        }
+
+        // Change the lightbox slide
+        function changeLightboxSlideP(n) {
+            let lightboxSlidesP = document.getElementById('lightbox-content').getElementsByTagName('img');
+            let totalSlides = lightboxSlidesP.length;
+
+            slideIndexP += n;
+
+            if (slideIndexP > totalSlides) {
+                slideIndexP = 1;
+            }
+            if (slideIndexP < 1) {
+                slideIndexP = totalSlides;
+            }
+
+            // Hide all lightbox slides
+            for (let i = 0; i < totalSlides; i++) {
+                lightboxSlidesP[i].style.display = 'none';
+            }
+
+            // Show the current lightbox slide
+            lightboxSlidesP[slideIndexP - 1].style.display = 'block';
+        }
+
+    </script>
+
+    <script src="../script.js"></script>
+</body>
+</html>

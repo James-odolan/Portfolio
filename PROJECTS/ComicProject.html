@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Urbanist" rel="stylesheet">
+    <title>James' Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/x-icon" href="../Images/favicon.ico">
+    <style>
+        .page-heading {
+            margin: 8% 0% 0% 0%;
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 750px!important;
+            animation: zoomIn 0.5s ease-in-out; /* Zoom-in effect */
+        }
+
+        .COMIC-skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            margin: 4% 8%;
+            justify-content: center;
+        }
+
+        .C-skill-images {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .C-skill-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px;
+        }
+
+        .C-skill-text p {
+            padding: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cimg-1 img {
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            width: 40vw;
+        }
+        .cimg-2 img {
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            width: 40vw;
+        }
+        .cimg-3 img {
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            width: 40vw;
+        }
+
+        .arrange {
+            clip-path: inset(0 100% 100% 100%);
+            opacity: 0 !important;
+            transition: opacity 0.6s ease, clip-path 3.2s ease;
+        }
+
+        .arrange.visible {
+            opacity: 1 !important;
+            clip-path: inset(0 0 0 0);
+        }
+
+        @media screen and (max-width: 768px) {
+            .COMIC-skills {
+                grid-template-columns: repeat(1, 1fr);
+                padding: 10px;
+            }
+
+            .C-skill-images {
+                padding: 20px;
+            }
+
+            .cimg-1 img {
+                width: 80vw;
+            }
+
+            .cimg-2 img {
+                width: 80vw;
+            }
+
+            .cimg-3 img {
+                width: 80vw;
+            }
+
+            .C-skill-text {
+                gap: 12px;
+            }
+
+    }
+    </style>
+
+</head>
+<body class="fade-out">
+        <div id="page-transition"></div>
+        <div id="overlay"></div>
+        <div id="content">
+    <header>
+        <div class="logo">
+            <a href="../About.html">
+                <img src="../Images/LOGO.png" alt="Logo">
+            </a>
+        </div>
+        <nav id="navbar">
+            <div class="hamburger" id="hamburger" onclick="toggleNavbar()">&#9776;</div>
+            <ul class="nav-content">
+                <li><a href="../About.html">About</a></li>
+                <li><a href="../index.html">Portfolio</a></li>
+                <li><a href="../Contact.html">Contact</a></li>
+                <li><a href="../Experience.html">Experience</a></li>
+            </ul>
+        </nav>
+        <div class="cursor-dot" data-cursor-dot></div>
+        <div class="cursor-outline" data-cursor-outline></div>
+    </header>
+    
+    <div class="block"><h1 class="comh1"> Mental Health Comic </h1></div>
+                <div class="page-heading"><h2> Short Story "Joe & James" </h2></div>
+    <div class="Broch"> 
+
+        <div class="comicinfo">
+              <p class="drop-cap">During my final year of university one of the projects I did was a short story module, in which we had an open brief to create a short narrative that showed significant deeper meaning. My choice was to a mental health comic style page, which depicted two men in their young twenties talking about their personal feelings over a beer.</p></div>
+              
+
+    </div>
+    <div class="image-container-portfolio">
+        <img src="../Images/F1.png" loading="lazy" class="grid-image-portfolio size-small lightbox-trigger">
+        <img src="../Images/F2.png" loading="lazy"  class="grid-image-portfolio size-medium lightbox-trigger">
+        <img src="../Images/F3.png" loading="lazy"  class="grid-image-portfolio size-small lightbox-trigger">
+        <img src="../Images/F4.png" loading="lazy"  class="grid-image-portfolio size-medium lightbox-trigger">
+        <img src="../Images/F5.png" loading="lazy"  class="grid-image-portfolio size-large lightbox-trigger">
+        <img src="../Images/F6.png" loading="lazy"  class="grid-image-portfolio size-small lightbox-trigger">
+        <img src="../Images/F7.png" loading="lazy"  class="grid-image-portfolio size-medium lightbox-trigger">
+        <img src="../Images/F8.png" loading="lazy"  class="grid-image-portfolio size-small lightbox-trigger">
+        <img src="../Images/F9.png" loading="lazy"  class="grid-image-portfolio size-large lightbox-trigger">
+        <img src="../Images/F10.png" loading="lazy"  class="grid-image-portfolio size-medium lightbox-trigger">
+
+        <img src="../Images/F11.png" loading="lazy"  class="grid-image-portfolio size-small lightbox-trigger">
+        <img src="../Images/F12.png" loading="lazy"  class="grid-image-portfolio size-medium lightbox-trigger">
+        <img src="../Images/F13.png" loading="lazy"  class="grid-image-portfolio size-small lightbox-trigger">
+        <img src="../Images/F14.png" loading="lazy"  class="grid-image-portfolio size-medium lightbox-trigger">
+        <img src="../Images/F15.png" loading="lazy"  class="grid-image-portfolio size-large lightbox-trigger">
+        <img src="../Images/F16.png" loading="lazy"  class="grid-image-portfolio size-small lightbox-trigger">
+        <img src="../Images/F17.png" loading="lazy"  class="grid-image-portfolio size-medium lightbox-trigger">
+        <img src="../Images/F18.png" loading="lazy"  class="grid-image-portfolio size-small lightbox-trigger">
+        <img src="../Images/F19.png" loading="lazy"  class="grid-image-portfolio size-large lightbox-trigger">
+        <img src="../Images/F20.png" loading="lazy"  class="grid-image-portfolio size-medium lightbox-trigger">
+
+        <img src="../Images/F21.png" loading="lazy"  class="grid-image-portfolio size-small lightbox-trigger">
+        <img src="../Images/F22.png" loading="lazy"  class="grid-image-portfolio size-medium lightbox-trigger">
+        <img src="../Images/F23.png" loading="lazy"  class="grid-image-portfolio size-small lightbox-trigger">
+        <img src="../Images/F24.png" loading="lazy"  class="grid-image-portfolio size-medium lightbox-trigger">
+        <img src="../Images/F25.png" loading="lazy"  class="grid-image-portfolio size-large lightbox-trigger">
+        <img src="../Images/F26.png" loading="lazy"  class="grid-image-portfolio size-small lightbox-trigger">
+        <img src="../Images/F27.png" loading="lazy"  class="grid-image-portfolio size-medium lightbox-trigger">
+    </div> 
+
+    <div class="block"><h1 class="comh1">Skills Used</h1></div>
+
+    <div class="COMIC-skills arrange">
+        <div class="C-skill-images">
+            <div class="cimg-1">
+                <img src="../Images/cimg-1.png" loading="lazy" >
+            </div>
+            <div class="cimg-2">
+                <img src="../Images/cimg-2.png" loading="lazy" >
+            </div>
+            <div class="cimg-3">
+                <img src="../Images/cimg-3.png" loading="lazy" >
+            </div>
+        </div>
+        <div class="C-skill-text">
+            <p>Photography - The photos were captured using a DSLR camera, ensuring high resolution and sharp details. Afterward, I processed the images in Adobe Lightroom, enhancing them with custom filters and color grading to achieve a stylized, less realistic color palette that aligns with the artistic vision of the project.</p>
+
+            <p>Adobe Photoshop - I utilized various tools within Adobe Photoshop, including the cut-out, blending, and layer adjustment features, to meticulously transform the original images. This process involved working layer by layer to morph the photos from realistic depictions into a vibrant, comic book-style narrative, bringing the story to life with a dynamic visual impact.</p>
+
+            <p>Graphic Design - To further enhance the comic book effect, I incorporated graphic design elements such as speech bubbles, text overlays, and custom backgrounds. These additions were carefully designed and integrated to maintain consistency with the overall theme, adding depth and narrative clarity to the final visuals.</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="../linkICO"><i class="fab fa-facebook-f"></i></a>
+                <a href="../linkICO"><i class="fab fa-instagram"></i></a>
+                <a href="../linkICO"><i class="fab fa-twitter"></i></a>
+                <a href="../linkICO"><i class="fab fa-google-plus-g"></i></a>
+            </div>
+            <div class="contact-info">
+                <p>Email: jamesedward.odolan@gmail.com</p>
+                <p>Phone: +1 234 567 890</p>
+            </div>
+            <div class="quick-links">
+                <a href="../Portfolio.html">Home</a>
+                <a href="../About.html">About</a>
+                <a href="../Contact.html">Contact</a>
+                <a href="../Experience.html">Experience</a>
+            </div>
+            <div class="company-info">
+                <p>My Website is dedicated to providing top-notch services. My mission is to.</p>
+            </div>
+            <p>&copy; 2024; Designed by James O'Dolan</p>
+        </div>
+    </footer>  
+        <!-- Lightbox HTML -->
+        <div id="lightbox" class="lightbox">
+            <span class="close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
+</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('.grid-image-portfolio');
+
+            const setTransformOrigin = (element) => {
+                // Assuming a 12-column grid layout
+                const index = Array.from(element.parentElement.children).indexOf(element);
+                const row = Math.floor(index / 12); // Calculate row based on index
+                const column = index % 12; // Calculate column based on index
+
+                // Determine transform origin for each row
+                if (row === 3 || row === 4 || row === 7) { // 4th, 5th, and 8th rows (zero-based index)
+                    // For these rows, use bottom-right corner
+                    element.classList.add('origin-bottom-right');
+                    element.classList.remove('origin-top-left', 'origin-top-right', 'origin-bottom-left');
+                } else {
+                    // For other rows, alternate based on column position
+                    if (column < 6) {
+                        element.classList.add('origin-top-left');
+                        element.classList.remove('origin-top-right', 'origin-bottom-left', 'origin-bottom-right');
+                    } else {
+                        element.classList.add('origin-top-right');
+                        element.classList.remove('origin-top-left', 'origin-bottom-left', 'origin-bottom-right');
+                    }
+                }
+            };
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTransformOrigin(entry.target);
+                        entry.target.classList.add('in-view');
+                    } else {
+                        entry.target.classList.remove('in-view');
+                    }
+                });
+            }, observerOptions);
+
+            images.forEach(image => {
+                observer.observe(image);
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to handle adding and removing the 'visible' class
+            const revealOnScroll = () => {
+                const elements = document.querySelectorAll('.arrange');
+                elements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 150 && rect.bottom >= 0) { // Adjust the -150 value as needed
+                        element.classList.add('visible');
+                    } else {
+                        element.classList.remove('visible');
+                    }
+                });
+            };
+
+            // Initial check in case elements are already in view
+            revealOnScroll();
+
+            // Add scroll event listener
+            window.addEventListener('scroll', revealOnScroll);
+
+            // Use Intersection Observer for better performance
+            const observerOptions = {
+                root: null, // relative to viewport
+                rootMargin: '0px 0px -150px 0px', // Adjust the bottom margin to control trigger point
+                threshold: 0.1 // trigger when 10% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible,');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.arrange').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+        <script defer src="../Script.js"></script>
+</body>
+</html>
