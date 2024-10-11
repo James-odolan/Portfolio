@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Urbanist" rel="stylesheet">
+    <title>James' Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/x-icon" href="../Images/favicon.ico">
+    <style>
+
+    body {
+        overflow-x: hidden; /* Disable horizontal scrolling */
+        overflow-y: scroll; /* Enable vertical scrolling */
+        cursor: none;
+    }
+
+    nav {
+        cursor: none;
+    }
+
+    .logo {
+        cursor: none;
+    }
+
+    .block-reveal-container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .block-reveal-content {
+        transform: translateY(100%);
+        transition: transform 0.7s ease-out;
+    }
+
+    .block-reveal-container.revealed .block-reveal-content {
+        transform: translateY(0);
+    }
+
+    .block-reveal-container {
+        z-index: 100; /* Adjust as necessary */
+    }
+
+    .socimg-1, .socimg-2 {
+        opacity: 0;
+        transform: translateX(-100px); /* Initially positioned off-screen to the left */
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .socimg-2 {
+        transform: translateX(100px); /* Initially positioned off-screen to the right */
+    }
+
+    /* State when in view */
+    .socimg-1.visible, .socimg-2.visible {
+        opacity: 1;
+        transform: translateX(0); /* Move to original position */
+    }
+
+    .slideshow-container-1, .slideshow-container-2 {
+        opacity: 0;
+        transform: translateX(-100px); /* Initially positioned off-screen to the left */
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .slideshow-container-2 {
+        transform: translateX(100px); /* Initially positioned off-screen to the right */
+    }
+
+    /* State when in view */
+    .slideshow-container-1.visible, .slideshow-container-2.visible {
+        opacity: 1;
+        transform: translateX(0); /* Move to original position */
+    }
+
+    .soc-end-sect {
+        opacity: 0 ;
+        transform: translateY(100px);
+        transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .soc-end-sect.visible {
+        opacity: 1 ;
+        transform: translateY(0px);
+    }
+
+        @media screen and (max-width: 768px) {
+            .flextime {
+                display: block;
+            }
+
+            .pad1 {
+                margin: 0;
+            }
+
+            .pad2 {
+                margin: 0;
+            }
+
+            .SP-row {
+                padding: 30px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .skills-soc {
+                gap: 18px;
+
+            }
+
+            .skills {
+                min-height: 40px;
+            }
+        }
+.page-heading {
+    margin: 8.2% 0% -5% 0%;
+}
+
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 750px!important;
+    animation: zoomIn 0.5s ease-in-out; /* Zoom-in effect */
+}
+
+.pad1 p {
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.pad2 p {
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.justified-text {
+    text-align: justify;
+}
+
+    </style>
+
+
+</head>
+<body>
+    <div id="page-transition"></div>
+    <div id="overlay"></div>
+    <div id="content">
+
+        <header>
+            <div class="logo">
+                <a href="../About.html">
+                    <img src="../Images/LOGO.png" alt="Logo">
+                </a>
+            </div>
+            <nav id="navbar">
+                <div class="hamburger" id="hamburger">&#9776;</div>
+                <ul class="nav-content">
+                    <li><a href="../About.html">About</a></li>
+                    <li><a href="../index.html">Portfolio</a></li>
+                    <li><a href="../Contact.html">Contact</a></li>
+                    <li><a href="../Experience.html">Experience</a></li>
+                </ul>
+            </nav>
+        </header>
+            <div class="block"><h1>Social Media Project</h1></div>
+            <div class="page-heading"><h2> Artbyjamesodolan </h2></div>
+            <div class="soc-grid-container">
+
+                <div class="soc-image-container">
+                    <img src="../Images/ins-1.png" loading="lazy"  alt="Cover" class="socimg-1" width="300px">
+                </div>
+                <div class="soc-text-container">
+                        <p>
+                            I have initiated my own personal project by creating my very own Instagram page, where I showcase an array of styles, designs, and works that I have personally created. My platform named "JO Art" is aimed at presenting my creative ideas and personal projects during my free time.
+                            <br><br>
+                            I take great pleasure in experimenting with various styles and showcasing my broad range of skills throughout my page. Using Photoshop and Illustrator as my primary tools, I constantly strive to produce new art pieces by drawing inspiration from diverse sources, ultimately advancing my abilities to create.
+                            <br><br>
+                            Feel free to check out my Instagram <a href="https://www.instagram.com/artbyjamesodolan/" target="_INSTAGRAMPAGE">@artbyjamesodolan</a> 
+                        </p>
+                </div>
+                <div class="soc-image-container">
+                    <img src="../Images/ins-2.png" loading="lazy"  alt="Cover" class="socimg-2" width="300px">
+                </div>
+            </div>
+
+            <div class="block"><h1>Project Spotlight</h1></div>
+            <section class="SP-MID">
+                <div class="flextime">
+                    <div class="slideshow-container-sp slideshow-container-1">
+                            <div class="mySlides1 fade">
+                                    <div class="numbertext">1 / 3</div>
+                                    <img src="../Images/MIDNIGHT.jpg" style="display: block;width:100%" display:="" block;="">
+                            </div>
+                                <div class="mySlides1 fade">
+                                    <div class="numbertext">2 / 3</div>
+                                    <img src="../Images/HEAVYHEAD.jpg" style="display: block;width:100%" display:="" block;="">
+                                </div>
+                            <div class="mySlides1 fade">
+                                    <div class="numbertext">3 / 3</div>
+                                    <img src="../Images/KNOWHER.jpg" style="display: block;width:100%" display:="" block;="">
+                            </div>
+                                <a class="prev" onclick="plusSlides1(-1)">&#10094;</a>
+                                <a class="next" onclick="plusSlides1(1)">&#10095;</a>
+                    </div>
+                        <div class="paragraph pad1">
+                                <p>
+                                    In these designs, I primarily used Photoshop to blend vintage and modern aesthetics. Typography played a major role, with custom fonts and subtle effects like drop shadows and glows adding depth without overshadowing the background. Layering textures and grain created a weathered, tactile feel I love. Color grading through adjustment layers helped set distinct moods—muted tones for one, bold reds for the other. Geometric elements like lines and crosses balanced the organic visuals, adding a modern touch. Overall, I’m pleased with how these designs mix retro and contemporary vibes while feeling cohesive yet dynamic.
+                                </p>
+
+                        </div>
+                </div>
+
+            <div class="MID">
+                <div class="flextime reverse">
+                    <div class="slideshow-container-sp slideshow-container-2">
+                        <div class="mySlides2 fade">
+                            <div class="numbertext">1 / 3</div>
+                            <img src="../Images/SPACE1.png" loading="lazy"  style="display: block;width:100%" display:="" block;="">
+                        </div>
+                            <div class="mySlides2 fade">
+                                <div class="numbertext">2 / 3</div>
+                                <img src="../Images/SPACE2.png" loading="lazy"  style="display: block;width:100%" display:="" block;="">
+                            </div>
+                        <div class="mySlides2 fade">
+                            <div class="numbertext">3 / 3</div>
+                            <img src="../Images/SPACE3.png" loading="lazy"  style="display: block;width:100%" display:="" block;="">
+                        </div>
+                        <a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides2(1)">&#10095;</a>
+                    </div>
+                    <div class="paragraph pad2">
+                        <p>
+                            I leaned into a retro-futuristic aesthetic for these designs, blending space themes with adventure. "Space Coaster" came to life with halftone textures and muted blues, evoking a cosmic journey. I enjoyed layering astronaut imagery with roller coaster tracks for a surreal sense of scale and excitement. Bold, futuristic typography captured the theme's energy while blending with the spacey backdrop. My goal was to make the design immersive, balancing nostalgia with the unknown, pulling the viewer into the thrill of the ride.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="block"><h1>Skills Learned</h1></div>
+        <div class="soc-end-sect">
+            <div class="SP-row">
+                <div class="skills-soc">
+                    <div class="skills">
+                        <p class="justified-text">I learned how to layout my assets in a clean, visually appealing way and edit them together cohesively using a variety of tools in the adobe suite. Additionally following and practicing many techniques from online tutorials.</p>
+                    </div>
+                    <div class="skills">
+                        <p class="justified-text">I learned how to edit my work in a non-destructive way and share the workload between programs effectively, using Illustrator for designing visual assets and Photoshop for refining details, applying textures, and finalizing the composition.</p>
+                    </div>
+                    <div class="skills">
+                        <p class="justified-text">Typography was also a huge learning curve that this project helped me develop in, front contrasting fonts to using the grid system, to layouting type and using it as the posters head.</p>
+                    </div>
+                </div>
+                
+            <div class="part2">
+                <div><img src="../Images/ANGELS.png" loading="lazy"  alt="Artwork" class="Image lightbox-trigger"></div>
+                <div><img src="../Images/3DT.png" loading="lazy"  alt="Artwork" class="Image lightbox-trigger"></div>
+                <div><img src="../Images/PLANT.png" loading="lazy"  alt="Artwork" class="Image lightbox-trigger"></div> 
+                <div><img src="../Images/FADE1.png" loading="lazy"  alt="Artwork" class="Image lightbox-trigger"></div>
+                <div><img src="../Images/FADE2.png" loading="lazy"  alt="Artwork" class="Image lightbox-trigger"></div>
+                <div><img src="../Images/FADE3.png" loading="lazy"  alt="Artwork" class="Image lightbox-trigger"></div>
+                <div><img src="../Images/F.png" loading="lazy"  alt="Artwork" class="Image lightbox-trigger"></div>
+                <div><img src="../Images/J.png" loading="lazy"  alt="Artwork" class="Image lightbox-trigger"></div>
+                <div><img src="../Images/O.png" loading="lazy"  alt="Artwork" class="Image lightbox-trigger"></div>
+            </div>
+            </div>
+        </div>
+
+            <footer>
+                <div class="footer-content">
+                    <div class="social-icons">
+                        <a href="../linkICO"><i class="fab fa-facebook-f"></i></a>
+                        <a href="../linkICO"><i class="fab fa-instagram"></i></a>
+                        <a href="../linkICO"><i class="fab fa-twitter"></i></a>
+                        <a href="../linkICO"><i class="fab fa-google-plus-g"></i></a>
+                    </div>
+                    <div class="contact-info">
+                        <p>Email: jamesedward.odolan@gmail.com</p>
+                        <p>Phone: +1 234 567 890</p>
+                    </div>
+                    <div class="quick-links">
+                        <a href="../Portfolio.html">Home</a>
+                        <a href="../About.html">About</a>
+                        <a href="../Contact.html">Contact</a>
+                        <a href="../Experience.html">Experience</a>
+                    </div>
+                    <p>My Website is dedicated to providing top-notch services. My mission is to.</p>
+                    <div class="company-info">
+                        
+                        <p>&copy; 2024; Designed by James O'Dolan</p>
+                    </div>
+
+                </div>
+            </footer>
+
+        <div id="lightbox" class="lightbox">
+            <span class="close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
+    </div>
+        <div class="cursor-dot" data-cursor-dot></div>
+        <div class="cursor-outline" data-cursor-outline></div>
+    <script>
+            
+                    let slideIndex1 = 1;
+        showSlides1(slideIndex1);
+
+        function plusSlides1(n) {
+            showSlides1(slideIndex1 += n);
+        }
+
+        function showSlides1(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides1");
+            if (n > slides.length) { slideIndex1 = 1 }
+            if (n < 1) { slideIndex1 = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex1 - 1].style.display = "block";
+        }
+
+        let slideIndex2 = 1;
+        showSlides2(slideIndex2);
+
+        function plusSlides2(n) {
+            showSlides2(slideIndex2 += n);
+        }
+
+        function showSlides2(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides2");
+            if (n > slides.length) { slideIndex2 = 1 }
+            if (n < 1) { slideIndex2 = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex2 - 1].style.display = "block";
+        }
+        </script>
+        <script>             
+
+            document.addEventListener('DOMContentLoaded', function() {
+            // Function to handle adding and removing the 'visible' class
+            const revealOnScroll = () => {
+                const elements = document.querySelectorAll('.socimg-1, .socimg-2, .slideshow-container-1, .slideshow-container-2, .soc-end-sect');
+                elements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 150 && rect.bottom >= 0) { // Adjust the -150 value as needed
+                        element.classList.add('visible');
+                    } else {
+                        element.classList.remove('visible');
+                    }
+                });
+            };
+
+            // Initial check in case elements are already in view
+            revealOnScroll();
+
+            // Add scroll event listener
+            window.addEventListener('scroll', revealOnScroll);
+
+            // Use Intersection Observer for better performance
+            const observerOptions = {
+                root: null, // relative to viewport
+                rootMargin: '0px 0px -150px 0px', // Adjust the bottom margin to control trigger point
+                threshold: 0.1 // trigger when 10% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.socimg-1, .socimg-2, .slideshow-container-1, .slideshow-container-2, .soc-end-sect').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+
+    <script src="../Script.js"></script>
+</body>
+</html>

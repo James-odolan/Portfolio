@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Urbanist" rel="stylesheet">
+    <title>James' Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/x-icon" href="../Images/favicon.ico">
+<style>
+
+
+section {
+    padding-top: 7%;
+    padding-bottom: 6%;
+}
+
+.grid-item img {
+    width: 85%;
+}
+
+.reveal-block1 {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1.6s ease, transform 1.6s ease;
+}
+
+.reveal-block1.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.GYM-sites-section {
+    margin: 0% 10% 12% 10%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.gym-site-text {
+    width: 50%;
+    margin: 9% 25% 0% 25%;
+    padding: 15px;
+    text-align: justify;
+    backdrop-filter: blur(10px);
+    margin-bottom: 7%;
+}
+
+.gym-site-text p {
+    margin: 0px;
+}
+
+.gym-site-1 {
+    margin: 10px;
+    padding: 5px;
+    grid-column: span 1;
+}
+
+.gym-site-2 {
+    margin: 10px;
+    padding: 5px;
+    grid-column: span 1;
+}
+
+.gym-site-1 img {
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    width: 37vw;
+    border-radius: 10px;
+}
+
+.gym-site-2 img {
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    width: 37vw;
+    border-radius: 10px;
+}
+
+
+
+.arrange {
+    gap: 50px;
+    display: flex;
+    margin-bottom: 10%;
+    justify-content: center;
+}
+.GYM-sites-section {
+    clip-path: inset(0 100% 0% 100%);
+    opacity: 0 !important;
+    transition: opacity 1.4s ease, clip-path 1.4s ease;
+}
+
+.GYM-sites-section.visible {
+    opacity: 1 !important;
+    clip-path: inset(0 0 0 0);
+}
+
+.gym-site-text {
+    overflow: hidden; /* Prevent overflow due to animations */
+    opacity: 0;
+    transform: translateX(-100px); /* Initially positioned off-screen to the left */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.gym-site-text.visible {
+    opacity: 1;
+    transform: translateX(0); /* Move to original position */
+}
+
+@media screen and (max-width: 768px) {
+    .GYM-sites-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        margin: 10px;
+    }
+    .gym-site-1 img {
+        width: 80vw;
+    }
+
+    .gym-site-2 img {
+        width: 80vw;
+    }
+
+    .gym-site-text {
+        width: 100%;
+        margin: 0%;
+        padding: 35px;
+    }
+
+    .phone-split {
+        grid-template-columns: 1fr;
+        margin: 0;
+    }
+}
+</style>
+</head>
+<body class="fade-out">
+    <div id="page-transition"></div>
+    <div id="overlay"></div>
+    <div id="content">
+        <header>
+            <div class="logo">
+                <a href="../About.html">
+                    <img src="../Images/LOGO.png" alt="Logo">
+                </a>
+            </div>
+            <nav id="navbar">
+                <div class="hamburger" id="hamburger">&#9776;</div>
+                <ul class="nav-content">
+                    <li><a href="../About.html">About</a></li>
+                    <li><a href="../index.html">Portfolio</a></li>
+                    <li><a href="../Contact.html">Contact</a></li>
+                    <li><a href="../Experience.html">Experience</a></li>
+                </ul>
+            </nav>
+            <div class="cursor-dot" data-cursor-dot></div>
+            <div class="cursor-outline" data-cursor-outline></div>
+        </header>
+
+<div class="block"><h1>Gym Revolution Project</h1></div>
+    <div class="Gymopener">
+        <p>This was one of my favourite projects at university. We were tasked with an open brief to create a marketting campaign with strategy and multiple deliverables. I personally wanted to focus on fitness and sports for my project, with deliverables such as : A multifunctional app, A website and Promotional Materials for the campaign.</p>
+    </div>
+
+<div class="arrange">
+    <div class="containergym">
+        <div class="masonry up ">
+            <div class="grid-item"><img src="../Images/p-1.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-2.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-3.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-4.png" loading="lazy"  width="100px"></div>
+
+            <div class="grid-item"><img src="../Images/p-5.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-6.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-7.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-8.png" loading="lazy"  width="100px"></div>
+        </div>
+    </div>
+    <div class="containergym">
+        <div class="masonry down">
+            <div class="grid-item"><img src="../Images/p-9.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-10.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-11.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-12.png" loading="lazy"  width="100px"></div>
+
+            <div class="grid-item"><img src="../Images/p-13.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-14.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-15.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-16.png" loading="lazy"  width="100px"></div>
+        </div>
+    </div>
+    <div class="containergym">
+        <div class="masonry up">
+            <div class="grid-item"><img src="../Images/p-17.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-18.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-19.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-20.png" loading="lazy"  width="100px"></div>
+
+            <div class="grid-item"><img src="../Images/p-21.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-22.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-23.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-24.png" loading="lazy"  width="100px"></div>
+        </div>
+    </div>
+    <div class="containergym">
+        <div class="masonry down">
+            <div class="grid-item"><img src="../Images/p-25.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-26.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-27.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-28.png" loading="lazy"  width="100px"></div>
+
+            <div class="grid-item"><img src="../Images/p-29.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-30.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-1.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-2.png" loading="lazy"  width="100px"></div>
+        </div>
+    </div>
+    <div class="containergym">
+        <div class="masonry up ">
+            <div class="grid-item"><img src="../Images/p-1.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-2.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-3.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-4.png" loading="lazy"  width="100px"></div>
+
+            <div class="grid-item"><img src="../Images/p-5.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-6.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-7.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-8.png" loading="lazy"  width="100px"></div>
+        </div>
+    </div>
+    <div class="containergym">
+        <div class="masonry down">
+            <div class="grid-item"><img src="../Images/p-9.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-10.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-11.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-12.png" loading="lazy"  width="100px"></div>
+
+            <div class="grid-item"><img src="../Images/p-13.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-14.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-15.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-16.png" loading="lazy"  width="100px"></div>
+        </div>
+    </div>
+    <div class="containergym">
+        <div class="masonry up">
+            <div class="grid-item"><img src="../Images/p-17.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-18.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-19.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-20.png" loading="lazy"  width="100px"></div>
+
+            <div class="grid-item"><img src="../Images/p-21.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-22.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-23.png" loading="lazy"  width="100px"></div>
+            <div class="grid-item"><img src="../Images/p-24.png" loading="lazy"  width="100px"></div>
+        </div>
+    </div>
+</div>
+
+    <div class="block"><h1>Promotional Video</h1></div>
+
+<section class="video-container-gym reveal-block1">
+    <video class="vidbord" width="70%" poster="../Images/Promo.png" loading="lazy"  controls style="box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
+        <source src="../Images/Promo.mp4" type="video/mp4">
+    </video>
+</section>
+
+    <div class="gym-site-text">
+        <p>Unfortunately, I had two websites for this project, but Wix's termination means I no longer have access to them. Despite this, the experience led me to practice HTML, CSS, and JavaScript, significantly enhancing my web design skills.</p>
+    </div>
+
+ <div class="GYM-sites-section">
+     <div class="gym-site-1">
+         <img src="../Images/gym-web.png" loading="lazy" >
+     </div>
+     <div class="gym-site-2">
+         <img src="../Images/gym-web-2.png" loading="lazy" >
+     </div>
+ </div>
+
+
+
+
+    <div class="block"><h1>Skills Used :</h1></div>
+
+<section>
+    <div class="phone-split">
+        <div class="GP-left">
+            <img src="../Images/xd.png" loading="lazy" >
+            <img src="../Images/ps.png" loading="lazy" >
+        </div>
+        <div class="new-row">
+            <div>
+                <p>I began creating the visuals for the design in photoshop and then transferred them over to adobe xd where i would carefully edit each individual page and make them consistently match, with heavy focus on matching the brand guidelines</p>
+            </div>
+            <div>
+                <p>I spent many days making test models of the app, experimenting with different people for the user interface, to try and make it simple and efficient as possible to use. Additionally making sure the app felt like a gym related app as to fullfill the brief.</p>
+            </div>
+            <div>
+                <p>Adobe After Effects was used to piece it all together in a smooth visual style using different visual animations and effects to help the viewers understand. The other day i took a trip to the zoo and spin kicked a tarantula clean in half</p>
+            </div>
+        </div>
+
+        <div class="soc-container">
+            <div class="back-button">
+                <button onclick="prevSlide()">&#10094;</button>
+            </div>
+            <div class="iphone-container">
+                <img src="../Images/iphone.png" loading="lazy"  alt="iPhone Frame" class="iphone-frame">
+                <div class="slideshow-container">
+                    <div class="slides">
+                        <div class="slide">
+                            <img src="../Images/p-1.png" loading="lazy"  alt="Slide 1">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-2.png" loading="lazy"  alt="Slide 1">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-3.png" loading="lazy"  alt="Slide 2">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-4.png" loading="lazy"  alt="Slide 3">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-5.png" loading="lazy"  alt="Slide 4">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-6.png" loading="lazy"  alt="Slide 5">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-7.png" loading="lazy"  alt="Slide 6">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-8.png" loading="lazy"  alt="Slide 7">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-9.png" loading="lazy"  alt="Slide 8">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-10.png" loading="lazy"  alt="Slide 9">
+                        </div>
+                       <div class="slide">
+                            <img src="../Images/p-11.png" loading="lazy"  alt="Slide 7">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-12.png" loading="lazy"  alt="Slide 8">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-13.png" loading="lazy"  alt="Slide 9">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-14.png" loading="lazy"  alt="Slide 1">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-15.png" loading="lazy"  alt="Slide 1">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-16.png" loading="lazy"  alt="Slide 2">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-17.png" loading="lazy"  alt="Slide 3">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-18.png" loading="lazy"  alt="Slide 4">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-19.png" loading="lazy"  alt="Slide 5">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-20.png" loading="lazy"  alt="Slide 6">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-21.png" loading="lazy"  alt="Slide 7">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-22.png" loading="lazy"  alt="Slide 8">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-23.png" loading="lazy"  alt="Slide 9">
+                        </div>
+                       <div class="slide">
+                            <img src="../Images/p-24.png" loading="lazy"  alt="Slide 7">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-25.png" loading="lazy"  alt="Slide 8">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-26.png" loading="lazy"  alt="Slide 9">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-27.png" loading="lazy"  alt="Slide 9">
+                        </div>
+                       <div class="slide">
+                            <img src="../Images/p-28.png" loading="lazy"  alt="Slide 7">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-29.png" loading="lazy"  alt="Slide 8">
+                        </div>
+                        <div class="slide">
+                            <img src="../Images/p-30.png" loading="lazy"  alt="Slide 9">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="next-button">
+                <button onclick="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="social-icons">
+                    <a href="../linkICO"><i class="fab fa-facebook-f"></i></a>
+                    <a href="../linkICO"><i class="fab fa-instagram"></i></a>
+                    <a href="../linkICO"><i class="fab fa-twitter"></i></a>
+                    <a href="../linkICO"><i class="fab fa-google-plus-g"></i></a>
+                </div>
+                <div class="contact-info">
+                    <p>Email: jamesedward.odolan@gmail.com</p>
+                    <p>Phone: +1 234 567 890</p>
+                </div>
+                <div class="quick-links">
+                    <a href="../Portfolio.html">Home</a>
+                    <a href="../About.html">About</a>
+                    <a href="../Contact.html">Contact</a>
+                    <a href="../Experience.html">Experience</a>
+                </div>
+                <div class="company-info">
+                    <p>My Website is dedicated to providing top-notch services. My mission is to.</p>
+                </div>
+                <p>&copy; 2024; Designed by James O'Dolan</p>
+            </div>
+        </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to handle adding and removing the 'visible' class
+            const revealOnScroll = () => {
+                const elements = document.querySelectorAll('.gym-site-text');
+                elements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 150 && rect.bottom >= 0) { // Adjust the -150 value as needed
+                        element.classList.add('visible');
+                    } else {
+                        element.classList.remove('visible');
+                    }
+                });
+            };
+
+            // Initial check in case elements are already in view
+            revealOnScroll();
+
+            // Add scroll event listener
+            window.addEventListener('scroll', revealOnScroll);
+
+            // Use Intersection Observer for better performance
+            const observerOptions = {
+                root: null, // relative to viewport
+                rootMargin: '0px 0px -150px 0px', // Adjust the bottom margin to control trigger point
+                threshold: 0.1 // trigger when 10% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.gym-site-text').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+    <script src="../GYM.js"></script>
+    <script defer src="../Script.js"></script>
+    </div>
+</body>
+</html>
