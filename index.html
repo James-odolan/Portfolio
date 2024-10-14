@@ -74,14 +74,14 @@
         overflow: hidden; 
     }
     </style>
-    <script>
+  <script>
 document.addEventListener("DOMContentLoaded", function () {
     let scrollTimeout;
     let isUserScrolling = false;
     let isPaused = false;
     let scrollContainer = document.querySelector(".gallery");
     let scrollDirection = 1;
-    let scrollSpeed = 0.5;
+    let scrollSpeed = 0.5; // Default scroll speed
 
     const pauseIcon = document.getElementById('pause-icon');
     const playIcon = document.getElementById('play-icon');
@@ -99,59 +99,95 @@ document.addEventListener("DOMContentLoaded", function () {
     cloneChildren();
 
     const handleSeamlessLoop = () => {
-        const scrollWidth = scrollContainer.scrollWidth / 2;
+        const scrollWidth = scrollContainer.scrollWidth / 2; // Adjust for seamless looping
         if (scrollContainer.scrollLeft >= scrollWidth) {
-            scrollContainer.scrollLeft = 0;
+            scrollContainer.scrollLeft = 0; // Reset to start
         } else if (scrollContainer.scrollLeft <= 0) {
-            scrollContainer.scrollLeft = scrollWidth;
+            scrollContainer.scrollLeft = scrollWidth; // Reset to end
         }
     };
 
+    // Add wheel event for desktop scrolling
     scrollContainer.addEventListener("wheel", (evt) => {
         evt.preventDefault();
-
         if (!isPaused) {
-            scrollDirection = evt.deltaY > 0 ? 1 : -1;
-            scrollContainer.scrollLeft += evt.deltaY;
-            scrollContainer.style.scrollBehavior = "auto";
+            scrollDirection = evt.deltaY > 0 ? 1 : -1; // Determine scroll direction
+            scrollContainer.scrollLeft += evt.deltaY; // Adjust scroll
+            scrollContainer.style.scrollBehavior = "auto"; // Immediate scroll behavior
 
             clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(() => {
-                isUserScrolling = false;
+                isUserScrolling = false; // Reset after a delay
             }, 2000);
         }
     });
 
+    // Add touch event for mobile scrolling
+    let touchStartX = 0; // Track touch start position
+    let touchEndX = 0; // Track touch end position
+
+    scrollContainer.addEventListener("touchstart", (evt) => {
+        touchStartX = evt.changedTouches[0].screenX; // Get starting touch position
+    });
+
+    scrollContainer.addEventListener("touchend", (evt) => {
+        touchEndX = evt.changedTouches[0].screenX; // Get ending touch position
+        handleTouchScroll(); // Handle scroll based on touch movement
+    });
+
+    const handleTouchScroll = () => {
+        if (!isPaused) {
+            scrollDirection = touchEndX > touchStartX ? -1 : 1; // Determine scroll direction based on swipe
+            scrollContainer.scrollLeft += scrollDirection * scrollSpeed * 20; // Adjust scroll speed
+            handleSeamlessLoop(); // Manage seamless loop
+        }
+    };
+
     function continuousScroll() {
         if (!isPaused) {
             if (!isUserScrolling) {
-                scrollContainer.scrollLeft += scrollDirection * scrollSpeed;
-                handleSeamlessLoop();
+                scrollContainer.scrollLeft += scrollDirection * scrollSpeed; // Continuous scrolling
+                handleSeamlessLoop(); // Manage seamless loop
             }
-
-            requestAnimationFrame(continuousScroll);
+            requestAnimationFrame(continuousScroll); // Request next animation frame
         }
     }
 
     continuousScroll();
 
     window.addEventListener("load", () => {
-        scrollContainer.scrollLeft = 0;
-        continuousScroll();
+        scrollContainer.scrollLeft = 0; // Reset scroll on load
+        continuousScroll(); // Start continuous scrolling
     });
 
     pausePlayContainer.addEventListener('click', () => {
         isPaused = !isPaused;
 
         if (isPaused) {
-            pauseIcon.style.display = 'block';
-            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block'; // Show pause icon
+            playIcon.style.display = 'none'; // Hide play icon
         } else {
-            pauseIcon.style.display = 'none';
-            playIcon.style.display = 'block';
-            continuousScroll();
+            pauseIcon.style.display = 'none'; // Hide pause icon
+            playIcon.style.display = 'block'; // Show play icon
+            continuousScroll(); // Resume scrolling
         }
     });
+
+    // Update scroll speed based on screen size
+    const updateScrollSpeed = () => {
+        const screenWidth = window.innerWidth;
+        if (screenWidth > 1200) {
+            scrollSpeed = 1; // Faster scroll for larger screens
+        } else if (screenWidth > 800) {
+            scrollSpeed = 0.5; // Medium scroll for medium screens
+        } else {
+            scrollSpeed = 0.2; // Slower scroll for smaller screens
+        }
+    };
+
+    // Call the function on resize and initial load
+    window.addEventListener('resize', updateScrollSpeed);
+    updateScrollSpeed(); // Initial call to set speed
 });
 
     </script>
