@@ -112,10 +112,7 @@ function handlePageTransition(event) {
 
 // Attach click event listener to all links
 document.querySelectorAll("a[href]").forEach(function(link) {
-    link.addEventListener("click", function(event) {
-        console.log("Link clicked:", event.currentTarget.href); // Debug log
-        handlePageTransition(event);
-    });
+    link.addEventListener("click", handlePageTransition);
 });
 
 // Handle the reverse animation when the new page loads
@@ -132,23 +129,26 @@ window.addEventListener("load", function() {
 
 // Handle the popstate event for back/forward navigation
 window.addEventListener("popstate", function(event) {
-    // Trigger the reverse animation
+    console.log("Navigating back/forward");
+    
+    // Apply the transitioning class immediately
     document.body.classList.add("transitioning");
+    
+    // Use a timeout to simulate the transition duration
     setTimeout(function() {
+        // Trigger the reverse animation
         document.body.classList.remove("transitioning");
         document.body.classList.add("loaded");
-        
+
         // Optionally, remove the loaded class after the transition completes
         setTimeout(function() {
             document.body.classList.remove("loaded");
         }, 800); // Duration of the transition (should match CSS transition time)
-    }, 100); // Delay before triggering the animation
+    }, 100); // Small delay before removing the transitioning class
 });
 
 // Page dissolve animation
 const overlay = document.getElementById("overlay");
-const content = document.getElementById("content");
-
 if (overlay) {
     // Ensure overlay is visible initially
     overlay.style.display = "block";
