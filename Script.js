@@ -91,65 +91,81 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Create and append the transition element if not already present
-    let transitionElement = document.getElementById("page-transition");
-    if (!transitionElement) {
-        transitionElement = document.createElement("div");
-        transitionElement.id = "page-transition";
-        document.body.appendChild(transitionElement);
-    }
+// Create and append the transition element if not already present
+let transitionElement = document.getElementById("page-transition");
+if (!transitionElement) {
+    transitionElement = document.createElement("div");
+    transitionElement.id = "page-transition";
+    document.body.appendChild(transitionElement);
+}
 
-    // Function to handle page transition
-    function handlePageTransition(event) {
-        event.preventDefault();
-        const targetHref = event.currentTarget.href;
-        console.log("Transitioning to:", targetHref); // Debug log
-        document.body.classList.add("transitioning");
-        setTimeout(function() {
-            window.location.href = targetHref;
-        }, 800); // Duration of the transition (should match CSS transition time)
-    }
+// Function to handle page transition
+function handlePageTransition(event) {
+    event.preventDefault();
+    const targetHref = event.currentTarget.href;
+    console.log("Transitioning to:", targetHref); // Debug log
+    document.body.classList.add("transitioning");
+    setTimeout(function() {
+        window.location.href = targetHref;
+    }, 800); // Duration of the transition (should match CSS transition time)
+}
 
-    // Attach click event listener to all links
-    document.querySelectorAll("a[href]").forEach(function(link) {
-        link.addEventListener("click", function(event) {
-            console.log("Link clicked:", event.currentTarget.href); // Debug log
-            handlePageTransition(event);
-        });
+// Attach click event listener to all links
+document.querySelectorAll("a[href]").forEach(function(link) {
+    link.addEventListener("click", function(event) {
+        console.log("Link clicked:", event.currentTarget.href); // Debug log
+        handlePageTransition(event);
     });
+});
 
-    // Handle the reverse animation when the new page loads
-    window.addEventListener("load", function() {
-        // Ensure the page is fully loaded before starting the reverse animation
+// Handle the reverse animation when the new page loads
+window.addEventListener("load", function() {
+    // Ensure the page is fully loaded before starting the reverse animation
+    document.body.classList.remove("transitioning");
+    document.body.classList.add("loaded");
+
+    // Optionally, remove the loaded class after the transition completes
+    setTimeout(function() {
+        document.body.classList.remove("loaded");
+    }, 800); // Duration of the transition (should match CSS transition time)
+});
+
+// Handle the popstate event for back/forward navigation
+window.addEventListener("popstate", function(event) {
+    // Trigger the reverse animation
+    document.body.classList.add("transitioning");
+    setTimeout(function() {
         document.body.classList.remove("transitioning");
         document.body.classList.add("loaded");
-
+        
         // Optionally, remove the loaded class after the transition completes
         setTimeout(function() {
             document.body.classList.remove("loaded");
         }, 800); // Duration of the transition (should match CSS transition time)
-    });
+    }, 100); // Delay before triggering the animation
+});
 
-    // Page dissolve animation
-    const overlay = document.getElementById("overlay");
-    const content = document.getElementById("content");
+// Page dissolve animation
+const overlay = document.getElementById("overlay");
+const content = document.getElementById("content");
 
-    if (overlay) {
-        // Ensure overlay is visible initially
-        overlay.style.display = "block";
-        overlay.style.opacity = "1";
+if (overlay) {
+    // Ensure overlay is visible initially
+    overlay.style.display = "block";
+    overlay.style.opacity = "1";
 
-        // Trigger the fade-out animation
-        window.addEventListener("load", function() {
-            setTimeout(function() {
-                overlay.style.opacity = "0";
-            }, 100); // Small delay to ensure the overlay is visible before starting fade-out
+    // Trigger the fade-out animation
+    window.addEventListener("load", function() {
+        setTimeout(function() {
+            overlay.style.opacity = "0";
+        }, 100); // Small delay to ensure the overlay is visible before starting fade-out
 
-            overlay.addEventListener("transitionend", function() {
-                overlay.style.display = "none";
-            });
+        overlay.addEventListener("transitionend", function() {
+            overlay.style.display = "none";
         });
-    }
+    });
+}
+
 
     // Lightbox functionality
     const lightbox = document.getElementById('lightbox');
