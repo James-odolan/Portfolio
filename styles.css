@@ -580,7 +580,7 @@ h2 {
     filter: saturate(0%) contrast(130%);
     transition: transform 0.3s ease, filter 0.3s ease; /* Adjust transition */
     transform: perspective(1000px) rotateY(10deg);
-    border-radius: 50px;
+    border-radius: 12%;
     position: relative;
     z-index: 1;
     animation: imageTilt 7s ease-in-out infinite; /* Add the rotation animation */
