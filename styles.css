@@ -542,7 +542,7 @@ h2 {
 }
 
 .gallery {
-    margin-top: 7%;
+    padding-top: 7%;
     width: 100vw;
     display: flex;
     overflow-x: scroll;
