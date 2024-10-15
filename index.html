@@ -9,8 +9,24 @@
     <title>James' Portfolio</title>
     <link rel="stylesheet" href="./styles.css">
     <link rel="icon" type="image/x-icon" href="./Images/favicon.ico">
-</head>
+<style>
+    a p {
+        width: 92%;
+        transform: perspective(1000px) rotateY(10deg);
+        z-index: 1;
+        animation: imageTilt 7s ease-in-out infinite;
+        text-align: center;    }
 
+    .gallery a {
+        font-family: 'Urbanist';
+        color: white;
+        text-decoration: none;
+    }
+
+
+
+</style>
+</head>
 <body>
     <div id="page-transition"></div>
     <div id="overlay"></div>
@@ -41,24 +57,24 @@
         <div class="gallery-wrap">
             <div class="gallery">
                 <div>
-                    <span><a href="./PROJECTS/SocialProject.html"><img class="original" src="./Images/Midnight-P.png" width="300px" height="auto"></a></span>
-                    <span><a href="./PROJECTS/MotionProject.html"><img class="original" src="./Images/Motion-P.png" width="300px" height="auto"></a></span>
-                    <span><a href="./PROJECTS/BrochureProject.html"><img class="original" src="./Images/BI1-P.png" width="300px" height="auto"></a></span>
+                    <span><p>Social Media Work</p><a href="./PROJECTS/SocialProject.html"><img class="original" src="./Images/Midnight-P.png" width="300px" height="auto"></a></span>
+                    <span><p>Cooking Motion Graphic</p><a href="./PROJECTS/MotionProject.html"><img class="original" src="./Images/Motion-P.png" width="300px" height="auto"></a></span>
+                    <span><p>Brochures & Posters</p><a href="./PROJECTS/BrochureProject.html"><img class="original" src="./Images/BI1-P.png" width="300px" height="auto"></a></span>
                 </div>
                 <div>
-                    <span><a href="./PROJECTS/ComicProject.html"><img class="original" src="./Images/Comic-P.png" width="300px" height="auto"></a></span>
-                    <span><a href="./PROJECTS/GymProject.html"><img class="original" src="./Images/GYM-P.png" width="300px" height="auto"></a></span>
-                    <span><a href="./PROJECTS/PhotoProject.html"><img class="original" src="./Images/PHOTO-P.png" width="300px" height="auto"></a></span>
+                    <span><p>Comic Strip Project</p><a href="./PROJECTS/ComicProject.html"><img class="original" src="./Images/Comic-P.png" width="300px" height="auto"></a></span>
+                    <span><p>Gym Brand</p><a href="./PROJECTS/GymProject.html"><img class="original" src="./Images/GYM-P.png" width="300px" height="auto"></a></span>
+                    <span><p>Photography</p><a href="./PROJECTS/PhotoProject.html"><img class="original" src="./Images/PHOTO-P.png" width="300px" height="auto"></a></span>
                 </div>
                 <div>
-                    <span><a href="./PROJECTS/3DProject.html"><img class="original" src="./Images/CBB-P.png" width="300px" height="auto"></a></span>
-                    <span><a href="./PROJECTS/LeedsMuseumProject.html"><img class="original" src="./Images/Leeds-P.png" width="300px" height="auto"></a></span>
-                    <span><a href="./PROJECTS/TitleSequenceProject.html"><img class="original" src="./Images/VID-P.png" width="300px" height="auto"></a></span>
+                    <span><p>3D Design Work</p><a href="./PROJECTS/3DProject.html"><img class="original" src="./Images/CBB-P.png" width="300px" height="auto"></a></span>
+                    <span><p>Leeds Museum Project</p><a href="./PROJECTS/LeedsMuseumProject.html"><img class="original" src="./Images/Leeds-P.png" width="300px" height="auto"></a></span>
+                    <span><p>Title Motion Graphic</p><a href="./PROJECTS/TitleSequenceProject.html"><img class="original" src="./Images/VID-P.png" width="300px" height="auto"></a></span>
                 </div>
                 <div>
-                    <span><a href="./PROJECTS/ShortFilmProject.html"><img class="original" src="./Images/SHORT-P.png" width="300px" height="auto"></a></span>
-                    <span><a href="./PROJECTS/MovemberProject.html"><img class="original" src="./Images/INFO-P.png" width="300px" height="auto"></a></span>
-                    <span><a href="./PROJECTS/WebsiteWork.html"><img class="original" src="./Images/WEB-P.png" width="300px" height="auto"></a></span>
+                    <span><p>Short Film</p><a href="./PROJECTS/ShortFilmProject.html"><img class="original" src="./Images/SHORT-P.png" width="300px" height="auto"></a></span>
+                    <span><p>Movember Brand Campaign</p><a href="./PROJECTS/MovemberProject.html"><img class="original" src="./Images/INFO-P.png" width="300px" height="auto"></a></span>
+                    <span><p>Website Work</p><a href="./PROJECTS/WebsiteWork.html"><img class="original" src="./Images/WEB-P.png" width="300px" height="auto"></a></span>
                 </div>
             </div>
         </div>
@@ -74,7 +90,7 @@
         overflow: hidden; 
     }
     </style>
-  <script>
+    <script>
 document.addEventListener("DOMContentLoaded", function () {
     let scrollTimeout;
     let isUserScrolling = false;
