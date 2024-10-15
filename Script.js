@@ -90,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
-
 // Create and append the transition element if not already present
 let transitionElement = document.getElementById("page-transition");
 if (!transitionElement) {
@@ -112,11 +111,14 @@ function handlePageTransition(event) {
 
 // Attach click event listener to all links
 document.querySelectorAll("a[href]").forEach(function(link) {
-    link.addEventListener("click", handlePageTransition);
+    link.addEventListener("click", function(event) {
+        console.log("Link clicked:", event.currentTarget.href); // Debug log
+        handlePageTransition(event);
+    });
 });
 
 // Handle the reverse animation when the new page loads
-window.addEventListener("load", function() {
+function startReverseTransition() {
     // Ensure the page is fully loaded before starting the reverse animation
     document.body.classList.remove("transitioning");
     document.body.classList.add("loaded");
@@ -125,30 +127,23 @@ window.addEventListener("load", function() {
     setTimeout(function() {
         document.body.classList.remove("loaded");
     }, 800); // Duration of the transition (should match CSS transition time)
+}
+
+// Add load event listener for reverse animation
+window.addEventListener("load", function() {
+    startReverseTransition();
 });
 
-// Handle the popstate event for back/forward navigation
-window.addEventListener("popstate", function(event) {
-    console.log("Navigating back/forward");
-    
-    // Apply the transitioning class immediately
-    document.body.classList.add("transitioning");
-    
-    // Use a timeout to simulate the transition duration
-    setTimeout(function() {
-        // Trigger the reverse animation
-        document.body.classList.remove("transitioning");
-        document.body.classList.add("loaded");
-
-        // Optionally, remove the loaded class after the transition completes
-        setTimeout(function() {
-            document.body.classList.remove("loaded");
-        }, 800); // Duration of the transition (should match CSS transition time)
-    }, 100); // Small delay before removing the transitioning class
+// Handle browser back/forward button transitions
+window.addEventListener("popstate", function() {
+    console.log("Browser navigation (back/forward) detected.");
+    startReverseTransition();
 });
 
 // Page dissolve animation
 const overlay = document.getElementById("overlay");
+const content = document.getElementById("content");
+
 if (overlay) {
     // Ensure overlay is visible initially
     overlay.style.display = "block";
@@ -165,7 +160,6 @@ if (overlay) {
         });
     });
 }
-
 
     // Lightbox functionality
     const lightbox = document.getElementById('lightbox');
