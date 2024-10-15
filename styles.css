@@ -587,6 +587,19 @@ h2 {
 
 }
 
+/* Default styles for the images */
+.gallery div span {
+    width: 90%;
+    height: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for the images with class "original" */
+.gallery div span:hover {
+    transform: scale(1.05); /* Slightly zoom in on hover */
+    opacity: 0.8; /* Slightly reduce opacity on hover */
+}
+
 .gallery {
    height: auto;
     z-index: 2001;
