@@ -131,36 +131,25 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Page dissolve animation
-const overlay = document.getElementById("overlay");
-const content = document.getElementById("content");
+    const overlay = document.getElementById("overlay");
+    const content = document.getElementById("content");
 
-function fadeOutOverlay() {
     if (overlay) {
-        // Ensure the overlay is visible
+        // Ensure overlay is visible initially
         overlay.style.display = "block";
         overlay.style.opacity = "1";
 
-        // Trigger the fade-out animation after a small delay
-        setTimeout(function() {
-            overlay.style.opacity = "0";
-        }, 100); // Small delay to ensure the overlay is visible before starting fade-out
+        // Trigger the fade-out animation
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                overlay.style.opacity = "0";
+            }, 100); // Small delay to ensure the overlay is visible before starting fade-out
 
-        // When the transition ends, hide the overlay
-        overlay.addEventListener("transitionend", function() {
-            overlay.style.display = "none";
+            overlay.addEventListener("transitionend", function() {
+                overlay.style.display = "none";
+            });
         });
     }
-}
-
-// Trigger fade-out on page load (when entering a new page)
-window.addEventListener("load", function() {
-    fadeOutOverlay();
-});
-
-// Trigger fade-out on browser back/forward navigation
-window.addEventListener("popstate", function() {
-    fadeOutOverlay();
-});
 
     // Lightbox functionality
     const lightbox = document.getElementById('lightbox');
@@ -218,4 +207,11 @@ window.addEventListener("popstate", function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', smoothScroll);
     });
+
+    // Listen for the popstate event, which is triggered when the back button is pressed
+        window.addEventListener('popstate', function(event) {
+    // Force the page to reload from the server (not cache) when back button is pressed
+    window.location.reload(true); // true forces a full reload
+    });
+
 });
