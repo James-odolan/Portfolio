@@ -208,10 +208,12 @@ document.addEventListener("DOMContentLoaded", function() {
         anchor.addEventListener('click', smoothScroll);
     });
 
-    // Listen for the popstate event, which is triggered when the back button is pressed
-        window.addEventListener('popstate', function(event) {
-    // Force the page to reload from the server (not cache) when back button is pressed
-    window.location.reload(true); // true forces a full reload
-    });
+    // Listen for the pageshow event, which is fired when navigating using the back button
+    window.addEventListener('pageshow', function(event) {
+    if (event.persisted) {
+        // If the page was loaded from cache (via back button), reload the page
+        window.location.reload(true); // true forces a full reload from the server
+    }
+});
 
 });
