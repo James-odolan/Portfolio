@@ -33,6 +33,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
         requestAnimationFrame(updateCursor);
     }
+    
+    function encodeWhatsAppLink() {
+            return 'https://wa.link/8i6plx'; // The WhatsApp link you want to use
+    }
 
     // Define the throttle function
     function throttle(fn, wait) {
