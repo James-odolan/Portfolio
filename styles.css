@@ -138,6 +138,34 @@ footer {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+
+.social-icons img {
+    width: 45%;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quick-links {
+    padding: 2%;
+}
+
+.footer-content p {
+    margin: auto;
+    max-width: 70%;
+}
+
+.social-icons {
+    width: 50%;
+    position: relative;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+}
+
 .quick-links a {
     color :#1abc9c;
     padding: 0px 30px;
