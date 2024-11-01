@@ -36,6 +36,23 @@ html {
     }
 }
 
+
+@media (max-width: 768px) { /* For tablets and smaller devices */
+    body {
+        background-size: contain; /* Scale image to fit without cutting off */
+        background-position: top center; /* Align the image better on smaller screens */
+        background-attachment: scroll; /* Allow background to scroll for better performance */
+    }
+}
+
+@media (max-width: 480px) { /* For smaller mobile screens */
+    body {
+        background-size: contain;
+        background-position: top center;
+        background-attachment: scroll;
+    }
+}
+
 /* Ensure body starts off with a black screen */
 
 /* Page transition overlay */
