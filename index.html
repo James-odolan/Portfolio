@@ -12,6 +12,61 @@
 <style>
 
 
+@media (max-width: 600px) {
+    .gallery {
+        display: none; /* Hide normal container on mobile */
+    }
+    .mobile-grid {
+        height: 80vh;
+        top: 10%;
+        position: absolute;
+        width: 100vw;
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        justify-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+
+
+@media (max-width: 1920px) {
+
+    .mobile-grid {
+        display: none;
+    }
+
+}
+.proj img:hover {
+    transform: scale(1.1) perspective(1000px) rotateY(0deg); /* Keep the image upright and scale up */
+    filter: saturate(120%) contrast(110%);
+    transition:filter 0.3s ease; /* Smooth hover effect */
+
+}
+
+.proj:hover {
+    transform: scale(1.1) perspective(1000px) rotateY(0deg); /* Keep the image upright and scale up */
+    transition: transform 0.3s ease,
+}
+
+.proj {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.proj img {
+
+    animation: imageTilt 3s ease-in-out infinite;
+    filter: saturate(0%) contrast(130%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    transform: perspective(1000px) rotateY(10deg);
+    border-radius: 12%;
+    width: 70%;
+    height: auto;
+}
+
 </style>
 </head>
 <body>
@@ -65,7 +120,68 @@
                 </div>
             </div>
         </div>
-   
+
+        <div class="mobile-grid">
+                    <div class="proj">
+                        <a href="./PROJECTS/SocialProject.html"><img class="original" src="./Images/Midnight-P.png" width="300px" height="auto"></a>
+                        <p>Social Media Work</p>
+                    </div>
+
+                    <div class="proj">
+                        <a href="./PROJECTS/MotionProject.html"><img class="original" src="./Images/Motion-P.png" width="300px" height="auto"></a>
+                        <p>Cooking Motion Graphic</p>
+                    </div>
+
+                    <div class="proj">
+                        <a href="./PROJECTS/BrochureProject.html"><img class="original" src="./Images/BI1-P.png" width="300px" height="auto"></a>
+                        <p>Brochures & Posters</p>
+                    </div>
+
+                    <div class="proj">
+                        <a href="./PROJECTS/ComicProject.html"><img class="original" src="./Images/Comic-P.png" width="300px" height="auto"></a>
+                        <p>Comic Strip Project</p>
+                    </div>
+
+                    <div class="proj">
+                        <a href="./PROJECTS/GymProject.html"><img class="original" src="./Images/GYM-P.png" width="300px" height="auto"></a>
+                        <p>Gym Brand</p>
+                    </div>
+
+                    <div class="proj">
+                        <a href="./PROJECTS/PhotoProject.html"><img class="original" src="./Images/PHOTO-P.png" width="300px" height="auto"></a>
+                        <p>Photography</p> 
+                    </div>
+
+                    <div class="proj">
+                        <a href="./PROJECTS/3DProject.html"><img class="original" src="./Images/CBB-P.png" width="300px" height="auto"></a>
+                        <p>3D Design Work</p>
+                    </div>
+
+                    <div class="proj">
+                        <a href="./PROJECTS/LeedsMuseumProject.html"><img class="original" src="./Images/Leeds-P.png" width="300px" height="auto"></a>
+                        <p>Leeds Museum Project</p>
+                    </div>
+
+                    <div class="proj">
+                        <a href="./PROJECTS/TitleSequenceProject.html"><img class="original" src="./Images/VID-P.png" width="300px" height="auto"></a>
+                        <p>Title Motion Graphic</p>
+                    </div>
+
+                    <div class="proj">
+                        <a href="./PROJECTS/ShortFilmProject.html"><img class="original" src="./Images/SHORT-P.png" width="300px" height="auto"></a>
+                        <p>Short Film</p>
+                    </div>
+
+                    <div class="proj">
+                        <a href="./PROJECTS/MovemberProject.html"><img class="original" src="./Images/INFO-P.png" width="300px" height="auto"></a>
+                        <p>Movember Brand Campaign</p>
+                    </div>
+                    <div class="proj">
+                        <a href="./PROJECTS/WebsiteWork.html"><img class="original" src="./Images/WEB-P.png" width="300px" height="auto"></a>
+                        <p>Website Work</p>
+                    </div>
+                </div>
+        </div>
         <div id="pause-play-container">
             <img id="pause-icon" src="Images/play.svg" alt="Pause" style="display: none; cursor: pointer;">
             <img id="play-icon" src="Images/pause.svg" alt="Play" style="cursor: pointer;">
